@@ -991,7 +991,16 @@ def set_arrays():
         corr_genre = movies[(movies.roi<30) & (movies.primaryGenre==menu_genre)][['ratingImdb', 'metascore', 'budget', 'grossWorld', 'profit', 'roi']].corr().loc['ratingImdb': 'metascore', 'budget':'roi']
         st.write(heatmap_2x4(corr_genre))
 
-        st.write(movies.goupby('primaryGenre')[['ratingImdb', 'metascore']].max())
+        st.write('### Descriptivos para el Rating de usuarios según los géneros')
+        movies['primaryGenre'] = movies['primaryGenre'].apply(grouppingGenres)
+        rating_genres = movies.groupby('primaryGenre').ratingImdb.describe().T[['Action', 'Adventure', 'Animation', 'Bio-Documentary',
+                                        'Comedy', 'Drama', 'Horror', 'Thriller']]
+        st.table(rating_genres)
+
+        st.write('### Descriptivos para el Metascore según los géneros')
+        metascore_genres = movies.groupby('primaryGenre').metascore.describe().T[['Action', 'Adventure', 'Animation', 'Bio-Documentary',
+                                        'Comedy', 'Drama', 'Horror', 'Thriller']]
+        st.table(metascore_genres)
 
     elif menu_arrays == 'Países':
         
@@ -1003,3 +1012,12 @@ def set_arrays():
         movies['primaryCountry'] = movies['countries'].apply(first_elem_csv)
         corr_country = movies[(movies.roi<30) & (movies.primaryCountry==menu_country)][['ratingImdb', 'metascore', 'budget', 'grossWorld', 'profit', 'roi']].corr().loc['ratingImdb': 'metascore', 'budget':'roi']
         st.write(heatmap_2x4(corr_country))
+
+        st.write('### Descriptivos para el Rating de usuarios según los países de origen')
+        rating_countries = movies.groupby('primaryCountry').ratingImdb.describe().T[['United States', 'United Kingdom', 'France', 'Canada', 'China', 'Spain']]
+        st.table(rating_countries)
+
+        st.write('### Descriptivos para el Metascore según los países de origen')
+        metascore_countries = movies.groupby('primaryCountry').metascore.describe().T[['United States', 'United Kingdom', 'France', 'Canada', 'China', 'Spain']]
+        st.table(metascore_countries)
+
