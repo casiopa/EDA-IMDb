@@ -11,13 +11,6 @@ from EDA_IMDb_variables import *
 
 
 
-## VARIABLES
-path = '../../data/web_imdb_clean/movies.csv'
-
-
-
-## FUNCTIONS
-
 #@st.cache
 def load_csv(path):
     data = pd.read_csv(path, sep=';')
@@ -884,7 +877,9 @@ def set_home():
 
 
 def set_data():
-    movies = load_csv(path) 
+    movies = load_csv(path)
+    rates = pd.read_csv(path_rates)
+
     st.title('Data')
     col1, col2 = st.beta_columns(2)
 
@@ -902,6 +897,10 @@ def set_data():
     st.markdown('### DataFrame `movies`')
     st.markdown('1553 entries  |  24 columns')
     st.write(movies)
+
+    st.markdown('### DataFrame `rates`')
+    st.markdown('4123 entries  |  8 columns')
+    st.write(rates)
 
 
 

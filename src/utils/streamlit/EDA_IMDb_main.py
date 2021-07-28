@@ -15,14 +15,14 @@ st.sidebar.markdown('Análisis exploratorio de datos | Películas 2014 a 2019')
 
 menu = st.sidebar.radio(
     "",
-    ("Inicio", "Data", "Variables de estudio", 'Otras variables', "Relaciones entre variables", "Matrices de correlación"),
+    ("Intro", "Data", "Variables de estudio", 'Otras variables', "Relaciones entre variables", "Matrices de correlación"),
 )
 
 # Pone el radio-button en horizontal. Afecta a todos los radio button de una página.
 # Por eso está puesto en este que es general a todo
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
-if menu == 'Inicio':
+if menu == 'Intro':
     set_home()
 elif menu == 'Data':
     set_data()
