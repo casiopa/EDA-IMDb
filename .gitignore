@@ -1,0 +1,14 @@
+__pycache__
+.ipynb_checkpoints
+kk
+*.log
+varios
+21-07-14_imdb_data
+*.pickle
+title_principals.tsv
+title_episode.tsv
+title_crew.tsv
+title_akas.tsv
+name_basics.tsv
+web_imdb
+imdb
