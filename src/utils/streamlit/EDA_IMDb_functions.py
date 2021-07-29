@@ -138,7 +138,7 @@ def scatter_rating_metascore(movies, size):
     )
 
     fig.add_annotation( # texto línea vertical  
-        text="Suspenso Ranking IMDb", x=3.5, y=-2, showarrow=False, font = {'color': gris, 'size':14}
+        text="Suspenso Rating IMDb", x=3.5, y=-2, showarrow=False, font = {'color': gris, 'size':14}
     )
 
     return fig
@@ -769,8 +769,8 @@ def stack_bar_genres(movies):
             'font': {'family':"Roboto", 'size':16},
             'title_font_family': 'Roboto',
             #'title_font_color':'#F5C518',
-            'height': 480,
-            'width': 960,
+            'height': 600,
+            'width': 1200,
             'barmode': 'stack',
             'title': 'Número de películas por género',
             'template' : "plotly_dark",
@@ -793,7 +793,7 @@ def map_countries(movies):
     fig = px.scatter_geo(countries_count, locations="primaryCountry",
                      hover_name="primaryCountry", size="countryCounts", text = 'countryCounts',
                      projection="equirectangular", locationmode = 'country names',
-                     width=800, height=500, template="plotly_dark",
+                     width=1200, height=600, template="plotly_dark",
                     )
     fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0},
                  plot_bgcolor='rgba(0,0,0,0)',
