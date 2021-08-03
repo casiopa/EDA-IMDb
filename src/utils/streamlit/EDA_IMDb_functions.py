@@ -853,9 +853,9 @@ def set_home():
 
     col1, col2 = st.beta_columns(2)
     with col1:
-        st.image('src/utils/streamlit/src/utils/streamlit/images/Relacion_Rating_Metascore_Budget.png')
+        st.image('src/utils/streamlit/images/Relacion_Rating_Metascore_Budget.png')
     with col2:
-        st.image('src/utils/streamlit/src/utils/streamlit/images/Relacion_Rating_Metascore_Profit.png')
+        st.image('src/utils/streamlit/images/Relacion_Rating_Metascore_Profit.png')
 
     st.markdown('''Si bien la correlación entre las valoraciones y los datos económicos de las películas es débil. Pero sí es cierto que la tendencia es más fuerte para el rating de usuarios que para la valoración de los críticos (Metascore).''')
 
