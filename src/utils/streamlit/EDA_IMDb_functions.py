@@ -845,7 +845,7 @@ def set_home():
 
     col1, col2 = st.beta_columns([2,1])
     with col1:
-        st.image('images/Relacion_Rating_Metascore.png')
+        st.image('src/utils/streamlit/images/Relacion_Rating_Metascore.png')
 
     st.markdown('''
     Si relacionamos las valoraciones con la información económica de las películas podemos observar que no guarda gran relación con el presupuesto, pues encontramos películas de alto presupuesto suspensas en las calificaciones. Sin embargo si relacionamos las valoraciones con el beneficio observamos que una tendencia de mayor puntuaciones a mayor beneficio. La variable beneficio conlleva implícitamente dos conceptos: éxito en taquilla y alto presupuesto. Este tipo de película tiende a ser bien valorado por los usuarios de IMDb.
@@ -853,15 +853,15 @@ def set_home():
 
     col1, col2 = st.beta_columns(2)
     with col1:
-        st.image('images/Relacion_Rating_Metascore_Budget.png')
+        st.image('src/utils/streamlit/src/utils/streamlit/images/Relacion_Rating_Metascore_Budget.png')
     with col2:
-        st.image('images/Relacion_Rating_Metascore_Profit.png')
+        st.image('src/utils/streamlit/src/utils/streamlit/images/Relacion_Rating_Metascore_Profit.png')
 
     st.markdown('''Si bien la correlación entre las valoraciones y los datos económicos de las películas es débil. Pero sí es cierto que la tendencia es más fuerte para el rating de usuarios que para la valoración de los críticos (Metascore).''')
 
     col1, col2 = st.beta_columns([2,1])
     with col1:
-        st.image('images/corr_2x4.png')
+        st.image('src/utils/streamlit/images/corr_2x4.png')
 
     st.markdown('''
     Ciertos subgrupos de la muestra de película tienen una mayor correlación, como los géneros del tipo de acción, thriller y horror, y a nivel de países también mejora la correlación cuando nos centramos en EEUU (país de origen del portal IMDb.
@@ -869,9 +869,9 @@ def set_home():
 
     col1, col2 = st.beta_columns(2)
     with col1:
-        st.image('images/corr_2x4_paises_eeuu.png')
+        st.image('src/utils/streamlit/images/corr_2x4_paises_eeuu.png')
     with col2:
-        st.image('images/corr_2x4_genero_action.png')
+        st.image('src/utils/streamlit/images/corr_2x4_genero_action.png')
 
     st.write(intro_herramientas_fuentes, unsafe_allow_html=True)
 

@@ -1,5 +1,5 @@
-path = '../../data/web_imdb_clean/movies.csv'
-path_rates = '../../data/OECD/DP_LIVE_16072021155836489.csv'
+path = 'src/data/web_imdb_clean/movies.csv'
+path_rates = 'src/data/OECD/DP_LIVE_16072021155836489.csv'
 
 intro = '''
 # Público, crítica y taquilla en IMDb
