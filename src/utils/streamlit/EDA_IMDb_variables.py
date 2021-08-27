@@ -123,5 +123,26 @@ Finalmente, las variables económicas escogidas para cada película son:
 
 
 variables_intro_rating = '''
-Visualizando la distribución del Rating IMDb podemos observar que los usuarios tienden a aprobar las películas. La media y la mediana se situan en `6,37` y `6,4` puntos, respectivamente. El valor mínimo es de `1,40` y el máximo de `8,6`, por lo que vemos que los usuarios no dejan de ser exigentes y el promedio de sus puntuaciones no se acerca a la puntuación nota máxima posible: `10`.
+Visualizando la distribución del Rating de IMDb podemos observar que los usuarios tienden a aprobar las películas. Así, la media y la mediana se situan en `6,37` y `6,4` puntos respectivamente. El valor mínimo es de `1,40` y el máximo de `8,6`, por lo que vemos que los usuarios no dejan de ser exigentes y el promedio de la puntuación máxima no se acerca a la puntuación máxima posible: `10`.
+'''
+
+variables_intro_metascore = '''
+Podemos observar que las puntuaciones de la crítica son más dispersas que el Rating de usuarios, e incluso llegan a otorgar las puntuaciones míninma y máxima de `1` y `100` puntos. Seguramente esto se deba a cómo está desarrollado el algoritmo de Metacritic que otorga estas puntuaciones de una manera automatizada. Dentro de nuestro dataset la película con el máximo Metascore es 'Boyhood' de 2014 que, sorprendentemente, consigue la puntuacion perfecta: `100`.
+'''
+
+variables_intro_presupuesto = '''
+Aunque en este período de tiempo tenemos unas de las películas más caras de la historia del cine, vemos que la mayoría se situan por debajo de los 13,5 millones de dólares. 'Vengadores: Endgagme' es la película con mayor presupuesto con 378 millones de dólares.
+'''
+
+
+variables_intro_recaudacion = '''
+
+'''
+
+variables_intro_beneficio = '''
+Nuevamente, la película con el máximo valor o mayor beneficio es 'Vengadores: Endgame' con más de 2.400 millones de dólares. Sin embargo, vemos que un gran porcentaje de las películas dan pérdidas con valores negativos para el beneficio. El 25% de las películas tienen una pérdidas de al menos 3 millones de dólares, y la mediana se sitúa en 4,3 millones de dólares.
+'''
+
+variables_intro_roi = '''
+El ROI, al tratarse de una variable independiente del presupuesto de la película, ya nos muestra un listado de películas totalmente diferente en lo alto de la tabla. En este caso hemos tenido que limitar el listado a películas con un valor máximo de 30 ya que detectamos que había datos no válidos en algunos casos. Sorprendente la cantidad de películas de terror o thriller en las primeras posiciones.
 '''

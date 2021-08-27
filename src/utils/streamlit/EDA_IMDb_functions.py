@@ -541,7 +541,6 @@ def variables_rating(movies):
         st.code(movies.ratingImdb.describe())
 
     col1, col2 = st.beta_columns(2)
-
     with col1:
         st.markdown('### Rating de usarios IMDb (2014-2019')
         st.write(hist_rating(movies))
@@ -552,68 +551,77 @@ def variables_rating(movies):
     
 
 def variables_metascore(movies):
+    st.markdown(variables_intro_metascore)
+
     with st.beta_expander("Descriptivos Metascore"):
         st.code(movies.metascore.describe())
-    col1, col2 = st.beta_columns(2)
 
+    col1, col2 = st.beta_columns(2)
     with col1:
-        st.markdown('### Películas con mayor metascore en IMDb')
-        st.write(barh_metascore(movies))
+        st.markdown('### Metascore (2014-2019)')
+        st.write(hist_metascore(movies))
     with col2:
-        st.markdown('### Metascore')
-        st.write(hist_metascore(movies))  
+        st.markdown('### Películas con mayor metascore en IMDb (2014-2019)')
+        st.write(barh_metascore(movies))  
 
 
 def variables_budget(movies):
+    st.markdown(variables_intro_presupuesto)
     with st.beta_expander("Descriptivos Presupuesto"):
         st.code(movies.budget.describe())
-    col1, col2 = st.beta_columns(2)
 
+    col1, col2 = st.beta_columns(2)
     with col1:
-        st.markdown('### Películas con mayor presupuesto en IMDb')
+        st.markdown('### Presupuesto (2014-2019)')
+        st.write(hist_budget(movies))
+    with col2:  
+        st.markdown('### Películas con mayor presupuesto en IMDb (2014-2019)')
         st.write(barh_budget(movies))
-    with col2:
-        st.markdown('### Presupuesto')
-        st.write(hist_budget(movies))  
 
 
 def variables_gross(movies):
+    st.markdown(variables_intro_recaudacion)
+
     with st.beta_expander("Descriptivos Recaudación"):
         st.code(movies.grossWorld.describe())
-    col1, col2 = st.beta_columns(2)
 
+    col1, col2 = st.beta_columns(2)
     with col1:
-        st.markdown('### Películas con mayor recaudación')
-        st.write(barh_gross(movies))
+        st.markdown('### Recaudación (2014-2019)')
+        st.write(hist_gross(movies))
     with col2:
-        st.markdown('### Recaudación')
-        st.write(hist_gross(movies))  
+        st.markdown('### Películas con mayor recaudación (2014-2019)')
+        st.write(barh_gross(movies))
 
 
 def variables_profit(movies):
+    st.markdown(variables_intro_beneficio)
+
     with st.beta_expander("Descriptivos Beneficios"):
         st.code(movies.profit.describe())
-    col1, col2 = st.beta_columns(2)
 
+    col1, col2 = st.beta_columns(2)
     with col1:
-        st.markdown('### Películas con mayor beneficio')
-        st.write(barh_profit(movies))
+        st.markdown('### Beneficios (2014-2019)')
+        st.write(hist_profit(movies))
     with col2:
-        st.markdown('### Beneficios')
-        st.write(hist_profit(movies))  
+        st.markdown('### Películas con mayor beneficio (2014-2019)')
+        st.write(barh_profit(movies))
 
 
 def variables_roi(movies):
+    st.markdown(variables_intro_roi)
+
     with st.beta_expander("Descriptivos Retorno de la inversión (ROI)"):
         st.code(movies.roi.describe())
     col1, col2 = st.beta_columns(2)
 
     with col1:
-        st.markdown('### Películas con mayor retorno de la inversión')
-        st.write(barh_roi(movies))
+        st.markdown('### Retorno de la inversión (2014-2019)')
+        st.write(hist_roi(movies))
     with col2:
-        st.markdown('### Retorno de la inversión')
-        st.write(hist_roi(movies))  
+        st.markdown('### Películas con mayor retorno de la inversión (2014-2019)')
+        st.write(barh_roi(movies))
 
 
 def first_elem_csv(csv):
