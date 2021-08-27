@@ -394,7 +394,7 @@ def hist_rating(movies):
 def hist_metascore(movies):
     plt.style.use('dark_background')
 
-    fig, ax = plt.subplots(figsize=(9,5.4))
+    fig, ax = plt.subplots(figsize=(9,5.5))
 
     ax.hist(movies.metascore, color = '#f5c518', bins=15, edgecolor = "none", rwidth=0.9)
 
