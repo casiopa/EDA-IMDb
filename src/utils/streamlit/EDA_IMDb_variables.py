@@ -110,10 +110,10 @@ De estas variables utilizaremos  presupuesto y recaudación. Esta decisión ha p
 
 Y además crearemos otras dos nuevas, que serán Beneficio y Retorno de la Inversión, con la siguiente información:
 
-Beneficio = Recaudación mundial - Presupuesto
+    Beneficio = Recaudación mundial - Presupuesto
 
 
-ROI = (Recaudación mundial - Presupuesto) / Presupuesto
+    ROI = (Recaudación mundial - Presupuesto) / Presupuesto
 
 Finalmente, las variables económicas escogidas para cada película son:
 - Presupuesto

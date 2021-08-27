@@ -915,10 +915,10 @@ def set_variables():
  
     menu_variables= st.radio(
         "",
-        ("Intro\n", "Rating","Metascore", "Presupuesto", "Recaudación", "Beneficios", "ROI"),
+        ("Intro", "Rating","Metascore", "Presupuesto", "Recaudación", "Beneficios", "ROI"),
     )
 
-    if menu_variables == "Intro\n":
+    if menu_variables == "Intro":
         st.markdown(variables_intro)
     elif menu_variables == "Rating":
         variables_rating(movies)
