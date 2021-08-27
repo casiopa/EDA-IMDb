@@ -258,7 +258,7 @@ def barh_gross(movies):
     n_mvps = 10
     mvps_grossWorld = movies[['spanishTitle', 'grossWorld']].sort_values(by='grossWorld', ascending=False)[:n_mvps]
 
-    fig, ax = plt.subplots(figsize=(9,6.8))
+    fig, ax = plt.subplots(figsize=(9,6.5))
 
     ax.barh(range(n_mvps+1,1,-1), mvps_grossWorld.grossWorld, color = '#f5c518', edgecolor = "none")
 
@@ -448,7 +448,7 @@ def hist_budget(movies):
 def hist_gross(movies):
     plt.style.use('dark_background')
 
-    fig, ax = plt.subplots(figsize=(9,6.8))
+    fig, ax = plt.subplots(figsize=(9,6.5))
 
     ax.hist(movies.grossWorld, color = '#f5c518', bins=15, edgecolor = "none", rwidth=0.9)
 
