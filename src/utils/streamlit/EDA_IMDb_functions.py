@@ -187,7 +187,7 @@ def barh_metascore(movies):
     n_mvps = 10
     mvps_metascore = movies[['spanishTitle', 'metascore']].sort_values(by='metascore', ascending=False)[:n_mvps]
 
-    fig, ax = plt.subplots(figsize=(9,5.5))
+    fig, ax = plt.subplots(figsize=(9,5.6))
 
     ax.barh(range(n_mvps+1,1,-1), mvps_metascore.metascore, color = '#f5c518', edgecolor = "none")
 
@@ -394,7 +394,7 @@ def hist_rating(movies):
 def hist_metascore(movies):
     plt.style.use('dark_background')
 
-    fig, ax = plt.subplots(figsize=(9,5.7))
+    fig, ax = plt.subplots(figsize=(9,5.4))
 
     ax.hist(movies.metascore, color = '#f5c518', bins=15, edgecolor = "none", rwidth=0.9)
 
