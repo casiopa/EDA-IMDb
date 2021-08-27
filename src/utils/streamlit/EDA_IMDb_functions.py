@@ -911,7 +911,8 @@ def set_data():
         st.write(bars_nmovies(movies))
 
     st.markdown('### DataFrame `movies`')
-    st.markdown('DataFrame final preparado para el estudio. 1.553 entries  |  24 columns')
+    st.markdown('DataFrame final preparado para el estudio.')
+    st.markdown('1.553 entries  |  24 columns')
     st.write(movies)
 
     st.markdown('### DataFrame `rates`')
