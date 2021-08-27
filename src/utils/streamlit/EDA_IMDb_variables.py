@@ -75,3 +75,48 @@ https://towardsdatascience.com/using-python-to-create-a-world-map-from-a-list-of
 
 
 '''
+
+
+
+variables_intro = '''
+### Valoración de las películas
+Disponemos de 3 puntuaciones para cada película:
+- IMDb Rating (asociado al número de votos para este rating)
+- Metascore
+- Popularity
+
+#### IMDb Rating
+Esta es el promedio de las valoraciones que hacen los usuarios del portal IMDb para cada película. El rango de esta puntuación se encuentra entre 1 y 10.
+
+Asumimos que el rating es un dato que sigue variando, sigue disponible para que el usuario vote. No disponemos del rating que había cuando la película estaba exhibiéndose en las salas, pero en esa época es cuando más votaciones recibe. Es posible que cada película, tras la emisión por televisión, reciba otra ola de votaciones, pero es cierto que al ser las películas más recientes de 2019 estos impactos ya habrán afectado a los datos recogidos ahora, en julio de 2021.
+
+#### Metascore
+Metacritic es un portal web que recopila críticas de películas, series, programas de televisión, videojuegos y libros. Metacritic ha desarrollado un algoritmo que convierte cada crítica en un porcentaje y hace una media ponderada para tener en cuenta el caché de la publicación. Esto da como resultado el metascore, una puntuación del 0 al 100 para cada producto, en nuestro caso de estudio, para cada película. 
+El metascore es habitualmente utilizado por los medios como referencia para medir la recepción de la crítica.
+En la página de IMDb aparece este índice para cada película y en este estudio lo tomaremos en cuenta como referencia para evaluar la valoración que hace la crítica de las películas.
+
+#### Popularity
+Dato que vamos a descartar porque es muy volátil, se mantiene en cambio constante y, al no disponer de un histórico, no guarda relación temporal con la recaudación.
+
+
+### Variables económicas
+En IMDb tenemos 4 variables de tipo económico:
+- Presupuesto
+- Recaudación del primer fin de semana en EEUU y Canadá
+- Recaudación en EEUU y Canadá
+- Recaudación mundial
+
+De estas variables utilizaremos  presupuesto y recaudación. Esta decisión ha propiciado prescindir de muchos registros porque solo 1.553 películas tenían estas 4 variables.
+
+Y además crearemos otras dos nuevas, que serán Beneficio y Retorno de la Inversión, con la siguiente información:
+
+\\((Beneficio = Recaudación mundial - Presupuesto\\))
+
+\\((ROI = (Recaudación mundial - Presupuesto) / Presupuesto\\))
+
+Finalmente, las variables económicas con las que trabajaremos para cada película son:
+- Presupuesto
+- Recaudación (mundial)
+- Beneficio
+- ROI
+'''

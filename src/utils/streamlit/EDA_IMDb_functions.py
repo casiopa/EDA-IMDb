@@ -913,6 +913,9 @@ def set_variables():
     movies = load_csv(path) 
     st.title('Variables de estudio - Valoraciones y recaudación')
 
+    with st.beta_expander("Intro variables"):
+        st.markdown(variables_intro)
+
     menu_variables= st.radio(
         "",
         ("Rating","Metascore", "Presupuesto", "Recaudación", "Beneficios", "ROI"),
