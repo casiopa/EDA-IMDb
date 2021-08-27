@@ -78,8 +78,8 @@ https://towardsdatascience.com/using-python-to-create-a-world-map-from-a-list-of
 
 
 variables_intro = '''
-## **Variables de valoración de las películas**
-Disponemos de 3 puntuaciones para cada película:
+## **Variables que puntúan las películas**
+Disponemos de 3 valoraciones para cada película:
 - IMDb Rating (asociado al número de votos para este rating)
 - Metascore
 - Popularity
@@ -106,7 +106,7 @@ En IMDb tenemos 4 variables de tipo económico:
 - Recaudación en EEUU y Canadá
 - Recaudación mundial
 
-De estas variables utilizaremos  presupuesto y recaudación. Esta decisión ha propiciado prescindir de muchos registros porque solo 1.553 películas tenían estas 4 variables.
+Para este estudio necesitaremos la información de presupuesto y recaudación. Esta decisión ha propiciado prescindir de muchos registros porque solo 1.553 películas tenían estas 4 variables.
 
 Y además crearemos otras dos nuevas, que serán Beneficio y Retorno de la Inversión, con la siguiente información:
 
