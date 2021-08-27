@@ -371,7 +371,7 @@ def barh_roi(movies):
 def hist_rating(movies):
     plt.style.use('dark_background')
 
-    fig, ax = plt.subplots(figsize=(9,6))
+    fig, ax = plt.subplots(figsize=(9,5.8))
 
     ax.hist(movies.ratingImdb, color = '#f5c518', bins=15, edgecolor = "none", rwidth=0.9)
 
