@@ -80,8 +80,8 @@ https://towardsdatascience.com/using-python-to-create-a-world-map-from-a-list-of
 variables_intro = '''
 ## **1. Variables que puntúan las películas**
 En el portal de IMDb disponemos de 3 valoraciones para cada película:
-- IMDb Rating (asociado al número de votos para este rating)
-- Metascore
+- **IMDb Rating** (asociado al número de votos para este rating)
+- **Metascore**
 - Popularity
 
 
@@ -115,10 +115,10 @@ Y además crearemos otras dos nuevas, que serán Beneficio y Retorno de la Inver
     ROI = (Recaudación mundial - Presupuesto) / Presupuesto
 
 Finalmente, las variables económicas escogidas para cada película son:
-- Presupuesto
-- Recaudación (mundial)
-- Beneficio
-- ROI
+- **Presupuesto**
+- **Recaudación** (mundial)
+- **Beneficio**
+- **ROI**
 '''
 
 
