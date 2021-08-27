@@ -120,3 +120,8 @@ Finalmente, las variables económicas escogidas para cada película son:
 - Beneficio
 - ROI
 '''
+
+
+variables_intro_rating = '''
+Visualizando la distribución del Rating IMDb podemos observar que los usuarios tienden a aprobar las películas. La media y la mediana se situan en `6,37` y `6,4` puntos, respectivamente. El valor mínimo es de `1,40` y el máximo de `8,6`, por lo que vemos que los usuarios no dejan de ser exigentes y el promedio de sus puntuaciones no se acerca a la puntuación nota máxima posible: `10`.
+'''

@@ -534,18 +534,21 @@ def hist_roi(movies):
 
 
 def variables_rating(movies):
+
+    st.markdown(variables_intro_rating)
+
     with st.beta_expander("Descriptivos Rating IMDb"):
         st.code(movies.ratingImdb.describe())
 
     col1, col2 = st.beta_columns(2)
 
     with col1:
-        st.markdown('### Películas con mayor rating de usuarios en IMDb')
-        st.write(barh_rating(movies))
-
+        st.markdown('### Rating de usarios IMDb (2014-2019')
+        st.write(hist_rating(movies))
+        
     with col2:
-        st.markdown('### Rating de usarios IMDb')
-        st.write(hist_rating(movies)) 
+        st.markdown('### Películas con mayor rating de usuarios en IMDb (2014-2019')
+        st.write(barh_rating(movies))         
     
 
 def variables_metascore(movies):
