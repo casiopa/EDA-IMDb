@@ -219,7 +219,7 @@ def barh_budget(movies):
     mvps_budget = movies[['spanishTitle', 'budget']].sort_values(by='budget', ascending=False)[:n_mvps]
     mvps_budget
 
-    fig, ax = plt.subplots(figsize=(9,6.8))
+    fig, ax = plt.subplots(figsize=(9,6))
 
     ax.barh(range(n_mvps+1,1,-1), mvps_budget.budget, color = '#f5c518', edgecolor = "none")
 
@@ -416,7 +416,7 @@ def hist_metascore(movies):
 def hist_budget(movies):
     plt.style.use('dark_background')
 
-    fig, ax = plt.subplots(figsize=(9,6.8))
+    fig, ax = plt.subplots(figsize=(9,6))
 
     ax.hist(movies.budget, color = '#f5c518', bins=15, edgecolor = "none", rwidth=0.9)
 
