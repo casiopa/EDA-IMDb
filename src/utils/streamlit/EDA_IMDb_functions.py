@@ -80,24 +80,27 @@ def bars_nmovies(movies):
     return fig
 
 
-def scatter_rating_metascore(movies, size):
-    movies['year'] = movies['year'].astype(int).astype('category')
+def scatter_rating_metascore(movies, size=None, color=None, title_color=''):
 
     fig = px.scatter(movies[movies.roi<30],
-                 x="ratingImdb", y="metascore", color="year", size=size,
-                 #title="Relación entre Rating y Metascore",
-                 width=780, height=780,
-                 color_discrete_map={ # replaces default color mapping by value
-                     2014: "#F52E18", 2015: "#F52E18", 2016: "#F55418", 2017: "#F57A18", 2018: "#F59F18", 2019: "#F5C518", 
-                 },
-                 template="plotly_dark",
-                 hover_name="spanishTitle", hover_data=["ratingImdb", "metascore"]
+                     x="ratingImdb", y="metascore", color=color, size=size,
+                     #title="Relación entre Rating y Metascore",
+                     width=780, height=780,
+                     color_continuous_scale=["#F5C518", "#F91949"],
+                     template="plotly_dark",
+                     hover_name="spanishTitle", hover_data=["ratingImdb", "metascore"]
                 )
+    
+    if color == None:
+        fig.update_traces(marker=dict(color="#F5C518"))
 
-    fig.update_layout(
-        legend = dict(title = '', font = {'size':14}),
-        title = dict(font = {'size':20, 'color': "#F5C518"}),
-    )
+    fig.update_layout(coloraxis_colorbar = dict(title="ROI",
+                                                #tickvals=[6,7,8,9],
+                                                #ticktext=["1M", "10M", "100M", "1B"],
+                                              ),
+                      legend = dict(title = 'legend', font = {'size':14}),
+                      title = dict(font = {'size':20, 'color': "#F5C518"}),
+                     )
 
     fig.update_xaxes(
         title_text = "Rating de IMDb (1-10)",
@@ -118,6 +121,8 @@ def scatter_rating_metascore(movies, size):
         showticklabels = False,
         zeroline = False
     )
+
+    
 
 
     gris = '#999'
@@ -950,15 +955,17 @@ def set_relations():
 
     menu_relations= st.radio(
         "",
-        ("Rating/Metascore", "Rating/Metascore/Presupuesto", "Rating/Metascore/Beneficio"),
+        ("Rating/Metascore", "R/M/Presupuesto", "R/M/Presupuesto/Beneficio", "R/M/Presupuesto/ROI"),
     )
 
     if menu_relations == "Rating/Metascore":
-        st.write(scatter_rating_metascore(movies, None))
-    elif menu_relations == "Rating/Metascore/Presupuesto":
-        st.write(scatter_rating_metascore(movies, 'budget'))
-    elif menu_relations == "Rating/Metascore/Beneficio":
-        st.write(scatter_rating_metascore(movies[(movies.profit>=0)], 'profit'))
+        st.write(scatter_rating_metascore(movies))
+    elif menu_relations == "R/M/Presupuesto":
+        st.write(scatter_rating_metascore(movies, size='budget'))
+    elif menu_relations == "R/M/Presupuesto/Beneficio":
+        st.write(scatter_rating_metascore(movies, size='budget', color='profit', title_color = 'Beneficio'))
+    elif menu_relations == "R/M/Presupuesto/ROI":
+        st.write(scatter_rating_metascore(movies, size='budget', color='roi', title_color = 'ROI'))
 
 
 
