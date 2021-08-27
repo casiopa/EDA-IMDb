@@ -4,7 +4,11 @@ path_rates = 'src/data/OECD/DP_LIVE_16072021155836489.csv'
 intro = '''
 # Público, crítica y taquilla en IMDb
 ### Análisis exploratorio de datos | Películas 2014 a 2019
-Con la intención de analizar un dataset representativo de todo tipo de películas he acudido al portal IMDb, el más completo a nivel internacional. Y he extraído los datos por dos vías: 
+El objetivo de este estudio es buscar relaciones entre las valoraciones de usuario y de críticos del cine, y las características económicas de las películas como el presupuesto y la recaudación conseguida.
+Con la intención de analizar datos representativos de todo tipo de películas se ha acudido al portal IMDb, el más completo a nivel internacional, y se han extraído los datos por dos vías: la descarga de tablas relacionales gratuitas de IMDb y mediante *web scarapping* de las películas del portal IMDb. El alcance de este estudio está limitado por la información accesible de manera gratuita en el portal IMDb, y a nivel temporal, se centra en los años comprendidos entre 2014 y 2019.
+El objetivo inicial era estudiar los 10 años anteriores a 2020 (de 2010 a 2019) pero por falta de recursos solo ha sido posible recoger datos para 6 años (2014 a 2019).
+
+### Principales procesos
 
 #### 1. Tablas relacionales descargadas de IMBd
 IMDb ofrece, de manera gratuita, una serie de archivos `.csv` que se corresponden con parte la información de su base de datos. De estas tablas he conseguido información como identificador de IMDb, título en español y en su versión original, duración, géneros, rating IMDb, año.
