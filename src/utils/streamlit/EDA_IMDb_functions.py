@@ -57,7 +57,7 @@ def bars_nmovies(movies):
     nmovies = movies.groupby('year')['year'].count()
 
 
-    fig, ax = plt.subplots(figsize=(8,4))
+    fig, ax = plt.subplots(figsize=(7.6,3.8))
 
     ax.bar(nmovies.index.astype(int), nmovies.values, color = '#f5c518', edgecolor = "none")
 
