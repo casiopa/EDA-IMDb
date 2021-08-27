@@ -25,7 +25,7 @@ def bars_nmovies_imdb():
 
     plt.style.use('dark_background')
 
-    fig, ax = plt.subplots(figsize=(13,6))
+    fig, ax = plt.subplots(figsize=(13,7))
 
     ax.bar(annos, n_pelis, edgecolor = "none",
         color = ['#777', '#777', '#777', '#777', '#f5c518', '#f5c518', '#f5c518', '#f5c518', '#f5c518', '#f5c518', '#777', '#444'])
@@ -57,7 +57,7 @@ def bars_nmovies(movies):
     nmovies = movies.groupby('year')['year'].count()
 
 
-    fig, ax = plt.subplots(figsize=(8,4))
+    fig, ax = plt.subplots(figsize=(8,3.5))
 
     ax.bar(nmovies.index.astype(int), nmovies.values, color = '#f5c518', edgecolor = "none")
 
