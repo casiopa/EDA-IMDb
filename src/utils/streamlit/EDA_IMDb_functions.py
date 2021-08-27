@@ -809,7 +809,7 @@ def map_countries(movies):
     fig = px.scatter_geo(countries_count, locations="primaryCountry",
                      hover_name="primaryCountry", size="countryCounts", text = 'countryCounts',
                      projection="equirectangular", locationmode = 'country names',
-                     width=1200, height=600, template="plotly_dark",
+                     template="plotly_dark", # width=1200, height=600, 
                     )
     fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0},
                  plot_bgcolor='rgba(0,0,0,0)',
