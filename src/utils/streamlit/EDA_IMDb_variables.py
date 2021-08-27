@@ -79,7 +79,7 @@ https://towardsdatascience.com/using-python-to-create-a-world-map-from-a-list-of
 
 variables_intro = '''
 ## **Variables que puntúan las películas**
-Disponemos de 3 valoraciones para cada película:
+En el portal de IMDb disponemos de 3 valoraciones para cada película:
 - IMDb Rating (asociado al número de votos para este rating)
 - Metascore
 - Popularity
