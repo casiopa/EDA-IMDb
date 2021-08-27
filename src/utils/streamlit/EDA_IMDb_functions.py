@@ -85,7 +85,7 @@ def scatter_rating_metascore(movies, size=None, color=None, title_color=''):
     fig = px.scatter(movies[movies.roi<30],
                      x="ratingImdb", y="metascore", color=color, size=size,
                      #title="Relación entre Rating y Metascore",
-                     width=780, height=780,
+                     width=780, height=780, opacity=0.5,
                      color_continuous_scale=["#F5C518", "#F91949"],
                      template="plotly_dark",
                      hover_name="spanishTitle", hover_data=["ratingImdb", "metascore"]
@@ -94,7 +94,7 @@ def scatter_rating_metascore(movies, size=None, color=None, title_color=''):
     if color == None:
         fig.update_traces(marker=dict(color="#F5C518"))
 
-    fig.update_layout(coloraxis_colorbar = dict(title="ROI",
+    fig.update_layout(coloraxis_colorbar = dict(title=title_color,
                                                 #tickvals=[6,7,8,9],
                                                 #ticktext=["1M", "10M", "100M", "1B"],
                                               ),
