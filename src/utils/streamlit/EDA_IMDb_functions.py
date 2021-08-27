@@ -901,18 +901,17 @@ def set_data():
     with col1:
         st.markdown('### Nº de películas en IMDb')
         st.markdown('117.482 páginas de películas (2014-2020) escrapeadas del portal IMDb')
-        st.markdown('')
+        st.markdown(' ')
         st.write(bars_nmovies_imdb())
 
 
     with col2:
         st.markdown('### Nº de películas de IMDb filtradas')
-        st.markdown('Datos resultantes tras filtrar las películas sin rating, metascore, presupuesto o recaudación')
-        st.markdown('1.553 películas')
+        st.markdown('Datos resultantes tras filtrar las películas sin rating, metascore, presupuesto o recaudación. 1.553 películas')
         st.write(bars_nmovies(movies))
 
     st.markdown('### DataFrame `movies`')
-    st.markdown('DataFrame final para el estudio\n1.553 entries  |  24 columns')
+    st.markdown('DataFrame final preparado para el estudio. 1.553 entries  |  24 columns')
     st.write(movies)
 
     st.markdown('### DataFrame `rates`')
