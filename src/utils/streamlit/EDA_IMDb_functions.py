@@ -156,7 +156,7 @@ def barh_rating(movies):
     n_mvps = 10
     mvps_rating = movies[['spanishTitle', 'ratingImdb']].sort_values(by='ratingImdb', ascending=False)[:n_mvps]
 
-    fig, ax = plt.subplots(figsize=(10,7.5))
+    fig, ax = plt.subplots(figsize=(9,6.8))
 
     ax.barh(range(n_mvps+1,1,-1), mvps_rating.ratingImdb, color = '#f5c518', edgecolor = "none")
 
@@ -187,7 +187,7 @@ def barh_metascore(movies):
     n_mvps = 10
     mvps_metascore = movies[['spanishTitle', 'metascore']].sort_values(by='metascore', ascending=False)[:n_mvps]
 
-    fig, ax = plt.subplots(figsize=(10,7))
+    fig, ax = plt.subplots(figsize=(9,6.5))
 
     ax.barh(range(n_mvps+1,1,-1), mvps_metascore.metascore, color = '#f5c518', edgecolor = "none")
 
@@ -219,7 +219,7 @@ def barh_budget(movies):
     mvps_budget = movies[['spanishTitle', 'budget']].sort_values(by='budget', ascending=False)[:n_mvps]
     mvps_budget
 
-    fig, ax = plt.subplots(figsize=(10,7.5))
+    fig, ax = plt.subplots(figsize=(9,6.8))
 
     ax.barh(range(n_mvps+1,1,-1), mvps_budget.budget, color = '#f5c518', edgecolor = "none")
 
@@ -258,7 +258,7 @@ def barh_gross(movies):
     n_mvps = 10
     mvps_grossWorld = movies[['spanishTitle', 'grossWorld']].sort_values(by='grossWorld', ascending=False)[:n_mvps]
 
-    fig, ax = plt.subplots(figsize=(10,7.5))
+    fig, ax = plt.subplots(figsize=(9,6.8))
 
     ax.barh(range(n_mvps+1,1,-1), mvps_grossWorld.grossWorld, color = '#f5c518', edgecolor = "none")
 
@@ -300,7 +300,7 @@ def barh_profit(movies):
     n_mvps = 10
     mvps_profit = movies[['spanishTitle', 'profit']].sort_values(by='profit', ascending=False)[:n_mvps]
 
-    fig, ax = plt.subplots(figsize=(10,7.5))
+    fig, ax = plt.subplots(figsize=(9,6.8))
 
     ax.barh(range(n_mvps+1,1,-1), mvps_profit.profit, color = '#f5c518', edgecolor = "none")
 
@@ -343,7 +343,7 @@ def barh_roi(movies):
     mvps_roi = movies[(movies.roi<30)][['spanishTitle', 'roi']].sort_values(by='roi', ascending=False)[:n_mvps]
     mvps_roi
 
-    fig, ax = plt.subplots(figsize=(10,7.42))
+    fig, ax = plt.subplots(figsize=(9,6.8))
 
     ax.barh(range(n_mvps+1,1,-1), mvps_roi.roi, color = '#f5c518', edgecolor = "none")
 
@@ -371,7 +371,7 @@ def barh_roi(movies):
 def hist_rating(movies):
     plt.style.use('dark_background')
 
-    fig, ax = plt.subplots(figsize=(10,7))
+    fig, ax = plt.subplots(figsize=(9,6))
 
     ax.hist(movies.ratingImdb, color = '#f5c518', bins=15, edgecolor = "none", rwidth=0.9)
 
@@ -394,7 +394,7 @@ def hist_rating(movies):
 def hist_metascore(movies):
     plt.style.use('dark_background')
 
-    fig, ax = plt.subplots(figsize=(10,7))
+    fig, ax = plt.subplots(figsize=(9,6))
 
     ax.hist(movies.metascore, color = '#f5c518', bins=15, edgecolor = "none", rwidth=0.9)
 
@@ -416,7 +416,7 @@ def hist_metascore(movies):
 def hist_budget(movies):
     plt.style.use('dark_background')
 
-    fig, ax = plt.subplots(figsize=(10,7.5))
+    fig, ax = plt.subplots(figsize=(9,6.8))
 
     ax.hist(movies.budget, color = '#f5c518', bins=15, edgecolor = "none", rwidth=0.9)
 
@@ -448,7 +448,7 @@ def hist_budget(movies):
 def hist_gross(movies):
     plt.style.use('dark_background')
 
-    fig, ax = plt.subplots(figsize=(10,7.5))
+    fig, ax = plt.subplots(figsize=(9,6.8))
 
     ax.hist(movies.grossWorld, color = '#f5c518', bins=15, edgecolor = "none", rwidth=0.9)
 
@@ -480,7 +480,7 @@ def hist_gross(movies):
 def hist_profit(movies):
     plt.style.use('dark_background')
 
-    fig, ax = plt.subplots(figsize=(10,7.5))
+    fig, ax = plt.subplots(figsize=(9,6.8))
 
     ax.hist(movies.profit, color = '#f5c518', bins=15, edgecolor = "none", rwidth=0.9)
 
@@ -512,7 +512,7 @@ def hist_profit(movies):
 def hist_roi(movies):
     plt.style.use('dark_background')
 
-    fig, ax = plt.subplots(figsize=(10,7.5))
+    fig, ax = plt.subplots(figsize=(9,6.8))
 
     ax.hist(movies.roi[movies.roi<30], color = '#f5c518', bins=100, edgecolor = "none", rwidth=0.9)
 
