@@ -79,11 +79,12 @@ https://towardsdatascience.com/using-python-to-create-a-world-map-from-a-list-of
 
 
 variables_intro = '''
-### Valoración de las películas
+## Valoración de las películas
 Disponemos de 3 puntuaciones para cada película:
 - IMDb Rating (asociado al número de votos para este rating)
 - Metascore
 - Popularity
+
 
 #### IMDb Rating
 Esta es el promedio de las valoraciones que hacen los usuarios del portal IMDb para cada película. El rango de esta puntuación se encuentra entre 1 y 10.
@@ -99,7 +100,7 @@ En la página de IMDb aparece este índice para cada película y en este estudio
 Dato que vamos a descartar porque es muy volátil, se mantiene en cambio constante y, al no disponer de un histórico, no guarda relación temporal con la recaudación.
 
 
-### Variables económicas
+## Variables económicas
 En IMDb tenemos 4 variables de tipo económico:
 - Presupuesto
 - Recaudación del primer fin de semana en EEUU y Canadá
@@ -110,11 +111,11 @@ De estas variables utilizaremos  presupuesto y recaudación. Esta decisión ha p
 
 Y además crearemos otras dos nuevas, que serán Beneficio y Retorno de la Inversión, con la siguiente información:
 
-\\((Beneficio = Recaudación mundial - Presupuesto\\))
+    \\(Beneficio = Recaudación mundial - Presupuesto\\)
 
-\\((ROI = (Recaudación mundial - Presupuesto) / Presupuesto\\))
+    \\(ROI = (Recaudación mundial - Presupuesto) / Presupuesto\\)
 
-Finalmente, las variables económicas con las que trabajaremos para cada película son:
+Finalmente, las variables económicas escogidas para cada película son:
 - Presupuesto
 - Recaudación (mundial)
 - Beneficio

@@ -912,16 +912,15 @@ def set_data():
 def set_variables():
     movies = load_csv(path) 
     st.title('Variables de estudio - Valoraciones y recaudación')
-
-    with st.beta_expander("Intro variables"):
-        st.markdown(variables_intro)
-
+ 
     menu_variables= st.radio(
         "",
-        ("Rating","Metascore", "Presupuesto", "Recaudación", "Beneficios", "ROI"),
+        ("Intro", "Rating","Metascore", "Presupuesto", "Recaudación", "Beneficios", "ROI"),
     )
 
-    if menu_variables == "Rating":
+    if menu_variables == "Intro":
+        st.markdown(variables_intro)
+    elif menu_variables == "Rating":
         variables_rating(movies)
     elif menu_variables == "Metascore":
         variables_metascore(movies)
