@@ -18,7 +18,7 @@ Como los archivos proporcionados por IMDb no contienen información económica d
 > **117.482 páginas escrapeadas** (todas las películas de 2014 a 2020)
 
 #### 3. *Variables* de estudio
-Una vez que tenemos diponible todos los datos seleccionamos nuestras principales variables para el estudio.
+Una vez que tenemos disponibles todos los datos seleccionamos nuestras principales variables para el estudio.
 Nos encontramos con dos tipos de variables: Por un lado tenemos las variables que hacen una valoración de las películas - Rating IMDb de usuarios, Metascore- y por otra parte tenemos variabes tipo económico (Presupuesto, Recaudación, Beneficio y ROI).
 
 #### 4. *Data mining* y *merge* de las tablas
