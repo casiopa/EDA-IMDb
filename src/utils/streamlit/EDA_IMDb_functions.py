@@ -300,7 +300,7 @@ def barh_profit(movies):
     n_mvps = 10
     mvps_profit = movies[['spanishTitle', 'profit']].sort_values(by='profit', ascending=False)[:n_mvps]
 
-    fig, ax = plt.subplots(figsize=(9,6.8))
+    fig, ax = plt.subplots(figsize=(9,6))
 
     ax.barh(range(n_mvps+1,1,-1), mvps_profit.profit, color = '#f5c518', edgecolor = "none")
 
@@ -343,7 +343,7 @@ def barh_roi(movies):
     mvps_roi = movies[(movies.roi<30)][['spanishTitle', 'roi']].sort_values(by='roi', ascending=False)[:n_mvps]
     mvps_roi
 
-    fig, ax = plt.subplots(figsize=(9,6.8))
+    fig, ax = plt.subplots(figsize=(9,5.5))
 
     ax.barh(range(n_mvps+1,1,-1), mvps_roi.roi, color = '#f5c518', edgecolor = "none")
 
@@ -480,7 +480,7 @@ def hist_gross(movies):
 def hist_profit(movies):
     plt.style.use('dark_background')
 
-    fig, ax = plt.subplots(figsize=(9,6.8))
+    fig, ax = plt.subplots(figsize=(9,6))
 
     ax.hist(movies.profit, color = '#f5c518', bins=15, edgecolor = "none", rwidth=0.9)
 
@@ -512,7 +512,7 @@ def hist_profit(movies):
 def hist_roi(movies):
     plt.style.use('dark_background')
 
-    fig, ax = plt.subplots(figsize=(9,6.8))
+    fig, ax = plt.subplots(figsize=(9,5.5))
 
     ax.hist(movies.roi[movies.roi<30], color = '#f5c518', bins=100, edgecolor = "none", rwidth=0.9)
 
