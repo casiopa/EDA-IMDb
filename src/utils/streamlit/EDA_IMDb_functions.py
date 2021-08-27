@@ -37,7 +37,7 @@ def bars_nmovies_imdb():
     ax.spines['right'].set_visible(False)
     ax.xaxis.grid(False)
 
-    plt.title('Nº de películas en IMDb', fontdict={'fontname': 'Roboto', 'fontsize': 22, 'fontweight': 'bold', 'color': '#f5c518'}, pad=35)
+    # plt.title('Nº de películas en IMDb', fontdict={'fontname': 'Roboto', 'fontsize': 22, 'fontweight': 'bold', 'color': '#f5c518'}, pad=35)
 
     annos_xticks = annos.astype(str)
     annos_xticks[11] = 'jun\n2021'
@@ -57,7 +57,7 @@ def bars_nmovies(movies):
     nmovies = movies.groupby('year')['year'].count()
 
 
-    fig, ax = plt.subplots(figsize=(4,2))
+    fig, ax = plt.subplots(figsize=(8,4))
 
     ax.bar(nmovies.index.astype(int), nmovies.values, color = '#f5c518', edgecolor = "none")
 
