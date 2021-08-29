@@ -783,11 +783,11 @@ def stack_bar_genres(movies):
 
     layout = {'xaxis': {'title': ''},
             'font': {'family':"Roboto", 'size':16},
-            'title_font_family': 'Roboto',
+            #'title_font_family': 'Roboto',
             #'title_font_color':'#F5C518',
             #'height': 600, 'width': 1200,
             'barmode': 'stack',
-            'title': 'Número de películas por género',
+            #'title': 'Número de películas por género',
             'template' : "plotly_dark",
             'plot_bgcolor':'rgba(50,50,50,1)'
             }
