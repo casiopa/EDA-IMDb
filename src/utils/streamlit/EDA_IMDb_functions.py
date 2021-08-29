@@ -825,6 +825,20 @@ def map_countries(movies):
     return fig
 
 
+def ratings_counts(movies):
+    ratings = pd.cut(movies.ratingImdb, [0, 2, 4, 6, 8, 10])
+    ratings = ratings.value_counts().sort_index()
+    ratings.index = pd.Index(['0 - 2', '2,1 - 4', '4,1 - 6', '6,1 - 8', '8,1 - 10'], name='Ratings (en rangos)')
+    ratings.name = 'Número de ratings'
+    return pd.DataFrame(ratings)
+
+def metascores_counts(movies):
+    metascore = pd.cut(movies.metascore, [0, 20, 40, 60, 80, 100])
+    metascore = metascore.value_counts().sort_index()
+    metascore.index = pd.Index(['0 - 20', '21 - 40', '41 - 60', '61 - 80', '81 - 100'], name='Metascores (en rangos)')
+    metascore.name = 'Número de metascores'
+    return pd.DataFrame(metascore)
+
 def table_ratings_economicvariable(movies, economic_variable):
     movies['rating_group'] = pd.cut(movies.ratingImdb, [0, 2, 4, 6, 8, 10])
     metascores = movies.groupby('rating_group')[economic_variable].agg(['count', np.mean, np.std])
@@ -1091,7 +1105,19 @@ def set_relations():
     )
 
     if menu_relations == "Rating/Metascore":
+
+        col1, col2 = st.beta_columns(2)
+        with col1:
+            st.markdown('### Cantidad de Ratings IMDb agrupados por rangos de 2 puntos')
+            st.write(ratings_counts(movies))
+            st.write(bars_ratings_counts(movies))
+        with col2:
+            st.markdown('### Cantidad de Metascores agrupados por rangos de 20 puntos')
+            st.write(metascores_counts(movies))
+            st.write(bars_metascores_counts(movies))
+
         st.write(scatter_rating_metascore(movies))
+
     elif menu_relations == "R/M/Presupuesto":
 
         col1, col2 = st.beta_columns(2)
