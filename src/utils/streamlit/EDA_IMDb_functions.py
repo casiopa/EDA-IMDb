@@ -1118,6 +1118,7 @@ def set_relations():
             st.write(metascores_counts(movies))
             st.write(bars_metascores_counts(movies))
 
+        st.markdown('### Relación entre Rating y Metascore')
         st.write(scatter_rating_metascore(movies))
 
     elif menu_relations == "R/M/Presupuesto":
