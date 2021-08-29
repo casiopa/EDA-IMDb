@@ -1126,12 +1126,10 @@ def set_relations():
         with col1:
             st.markdown('### Presupuesto por rangos de Ratings IMDb')
             st.write(table_ratings_economicvariable(movies, 'budget'))
-            st.markdown('### Presupesto medio por rangos de Ratings IMDb')
             st.write(bars_rating_economicvariable(movies, economic_variable='budget', title_y="Presupuesto medio($)", formattext='%{text:.2s}'))
         with col2:
             st.markdown('### Presupuesto por rangos de Metascore')
             st.write(table_metascores_economicvariable(movies, 'budget'))
-            st.markdown('### Presupesto medio por rangos Metascore')
             st.write(bars_metascore_economicvariable(movies, economic_variable='budget', title_y="Presupuesto medio ($)", formattext='%{text:.2s}'))
         
         st.markdown('### Relación entre Rating, Metascore y Presupuesto (tamaño)')
@@ -1145,12 +1143,10 @@ def set_relations():
         with col1:
             st.markdown('### Beneficio por rangos de Ratings IMDb')
             st.write(table_ratings_economicvariable(movies, 'profit'))
-            st.markdown('### Beneficio medio por rangos de Ratings IMDb')
             st.write(bars_rating_economicvariable(movies, economic_variable='profit', title_y="Beneficio medio($)", formattext='%{text:.2s}'))
         with col2:
             st.markdown('### Beneficio por rangos de Metascore')
             st.write(table_metascores_economicvariable(movies, 'profit'))
-            st.markdown('### Beneficio medio por rangos Metascore')
             st.write(bars_metascore_economicvariable(movies, economic_variable='profit', title_y="Beneficio medio ($)", formattext='%{text:.2s}'))
 
         st.markdown('### Relación entre Rating, Metascore, Presupuesto (tamaño) y Beneficio (color)')
@@ -1162,12 +1158,10 @@ def set_relations():
         with col1:
             st.markdown('### ROI por rangos de Ratings IMDb')
             st.write(table_ratings_economicvariable(movies, 'roi'))
-            st.markdown('### ROI medio por rangos de Ratings IMDb')
             st.write(bars_rating_economicvariable(movies, economic_variable='roi', title_y="ROI medio($)", formattext='%{text:.2s}'))
         with col2:
             st.markdown('### ROI por rangos de Metascore')
             st.write(table_metascores_economicvariable(movies, 'roi'))
-            st.markdown('### ROI medio por rangos Metascore')
             st.write(bars_metascore_economicvariable(movies, economic_variable='roi', title_y="ROI medio ($)", formattext='%{text:.2s}'))
 
         st.markdown('### Relación entre Rating, Metascore, Presupuesto (tamaño) y ROI (color)')
