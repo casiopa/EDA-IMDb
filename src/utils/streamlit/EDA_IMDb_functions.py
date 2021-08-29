@@ -1124,14 +1124,14 @@ def set_relations():
 
         col1, col2 = st.beta_columns(2)
         with col1:
-            st.markdown('### Presupuesto para rangos de Ratings IMDb')
+            st.markdown('### Presupuesto por rangos de Ratings IMDb')
             st.write(table_ratings_economicvariable(movies, 'budget'))
-            st.markdown('### Presupesto medio para rangos de Ratings IMDb')
+            st.markdown('### Presupesto medio por rangos de Ratings IMDb')
             st.write(bars_rating_economicvariable(movies, economic_variable='budget', title_y="Presupuesto medio($)", formattext='%{text:.2s}'))
         with col2:
-            st.markdown('### Presupuesto para rangos de Metascore')
+            st.markdown('### Presupuesto por rangos de Metascore')
             st.write(table_metascores_economicvariable(movies, 'budget'))
-            st.markdown('### Presupesto medio para rangos Metascore')
+            st.markdown('### Presupesto medio por rangos Metascore')
             st.write(bars_metascore_economicvariable(movies, economic_variable='budget', title_y="Presupuesto medio ($)", formattext='%{text:.2s}'))
         
         st.markdown('### Relación entre Rating, Metascore y Presupuesto (tamaño)')
@@ -1140,11 +1140,38 @@ def set_relations():
         
 
     elif menu_relations == "R/M/Presupuesto/Beneficio":
+
+        col1, col2 = st.beta_columns(2)
+        with col1:
+            st.markdown('### Beneficio por rangos de Ratings IMDb')
+            st.write(table_ratings_economicvariable(movies, 'profit'))
+            st.markdown('### Beneficio medio por rangos de Ratings IMDb')
+            st.write(bars_rating_economicvariable(movies, economic_variable='profit', title_y="Beneficio medio($)", formattext='%{text:.2s}'))
+        with col2:
+            st.markdown('### Beneficio por rangos de Metascore')
+            st.write(table_metascores_economicvariable(movies, 'profit'))
+            st.markdown('### Beneficio medio por rangos Metascore')
+            st.write(bars_metascore_economicvariable(movies, economic_variable='profit', title_y="Beneficio medio ($)", formattext='%{text:.2s}'))
+
         st.markdown('### Relación entre Rating, Metascore, Presupuesto (tamaño) y Beneficio (color)')
         st.write(scatter_rating_metascore(movies, size='budget', color='profit', title_color = 'Beneficio'))
+
     elif menu_relations == "R/M/Presupuesto/ROI":
+
+        col1, col2 = st.beta_columns(2)
+        with col1:
+            st.markdown('### ROI por rangos de Ratings IMDb')
+            st.write(table_ratings_economicvariable(movies, 'roi'))
+            st.markdown('### ROI medio por rangos de Ratings IMDb')
+            st.write(bars_rating_economicvariable(movies, economic_variable='roi', title_y="ROI medio($)", formattext='%{text:.2s}'))
+        with col2:
+            st.markdown('### ROI por rangos de Metascore')
+            st.write(table_metascores_economicvariable(movies, 'roi'))
+            st.markdown('### ROI medio por rangos Metascore')
+            st.write(bars_metascore_economicvariable(movies, economic_variable='roi', title_y="ROI medio ($)", formattext='%{text:.2s}'))
+
         st.markdown('### Relación entre Rating, Metascore, Presupuesto (tamaño) y ROI (color)')
-        st.write(scatter_rating_metascore(movies, size='budget', color='roi', title_color = 'ROI'))
+        st.write(scatter_rating_metascore(movies, size='roi', color='roi', title_color = 'ROI'))
 
 
 
