@@ -829,7 +829,7 @@ def table_ratings_economicvariable(movies, economic_variable):
     movies['rating_group'] = pd.cut(movies.ratingImdb, [0, 2, 4, 6, 8, 10])
     metascores = movies.groupby('rating_group')[economic_variable].agg(['count', np.mean, np.std])
     metascores.index = pd.Index(['0 - 2', '2,1 - 4', '4,1 - 6', '6,1 - 8', '8,1 - 10'], name='Ratings IMDb (en rangos)')
-    return metascores.round(2)
+    return metascores
 
 
 def table_metascores_economicvariable(movies, economic_variable):
@@ -1093,8 +1093,8 @@ def set_relations():
     if menu_relations == "Rating/Metascore":
         st.write(scatter_rating_metascore(movies))
     elif menu_relations == "R/M/Presupuesto":
+        
         col1, col2 = st.beta_columns(2)
-
         with col1:
             st.markdown('### Estadísticos presupuesto para rangos de Ratings IMDb')
             st.write(table_ratings_economicvariable(movies, 'budget'))
@@ -1103,6 +1103,7 @@ def set_relations():
             st.write(bars_rating_economicvariable(movies, economic_variable='budget', title_y="Presupuesto medio($)", formattext='%{text:.2s}'))
 
         st.write(scatter_rating_metascore(movies, size='budget'))
+
     elif menu_relations == "R/M/Presupuesto/Beneficio":
         st.write(scatter_rating_metascore(movies, size='budget', color='profit', title_color = 'Beneficio'))
     elif menu_relations == "R/M/Presupuesto/ROI":
