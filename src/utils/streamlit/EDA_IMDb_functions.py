@@ -1091,8 +1091,10 @@ def set_otras_variables():
     )
 
     if menu_otras_variables == "Géneros":
+        st.markdown('### Número de películas por género')
         st.write(stack_bar_genres(movies))
     elif menu_otras_variables == "Países":
+        st.markdown('### Número de películas por país de origen')
         st.write(map_countries(movies))
 
 
