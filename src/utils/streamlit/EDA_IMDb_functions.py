@@ -825,6 +825,124 @@ def map_countries(movies):
     return fig
 
 
+def table_ratings_economicvariable(movies, economic_variable):
+    movies['rating_group'] = pd.cut(movies.ratingImdb, [0, 2, 4, 6, 8, 10])
+    metascores = movies.groupby('rating_group')[economic_variable].agg(['count', np.mean, np.std])
+    metascores.index = pd.Index(['0 - 2', '2,1 - 4', '4,1 - 6', '6,1 - 8', '8,1 - 10'], name='Ratings IMDb (en rangos)')
+    return metascores.round(2)
+
+
+def table_metascores_economicvariable(movies, economic_variable):
+    movies['metascore_group'] = pd.cut(movies.metascore, [0, 20, 40, 60, 80, 100])
+    metascores = movies.groupby('metascore_group')[economic_variable].agg(['count', np.mean, np.std])
+    metascores.index = pd.Index(['0 - 20', '21 - 40', '41 - 60', '61 - 80', '81 - 100'], name='Metascores (en rangos)')
+    return metascores.round(2)
+
+def bars_ratings_counts(movies):
+    ratings = pd.cut(movies.ratingImdb, [0, 2, 4, 6, 8, 10])
+    ratings = ratings.value_counts().sort_index()
+    ratings.index = pd.Index(['0 - 2', '2,1 - 4', ',41 - 6', '6,1 - 8', '8,1 - 10'], name='Ratings IMDb (en rangos)')
+    ratings.name = 'Número de Ratings IMDb'
+    ratings = pd.DataFrame(ratings)
+    
+    fig = px.bar(ratings, x=ratings.index, y='Número de Ratings IMDb', text='Número de Ratings IMDb',
+                 template="plotly_dark", width=700, height=480,
+                )
+    fig.update_traces(#texttemplate='%{text:.2f}',
+                      textposition='outside',
+                      textfont={'color':"#F5C518"},
+                      marker=dict(color="#F5C518"),
+                     )
+    
+    return fig
+
+def bars_metascores_counts(movies):
+    metascore = pd.cut(movies.metascore, [0, 20, 40, 60, 80, 100])
+    metascore = metascore.value_counts().sort_index()
+    metascore.index = pd.Index(['0 - 20', '21 - 40', '41 - 60', '61 - 80', '81 - 100'], name='Metascores (en rangos)')
+    metascore.name = 'Número de metascores'
+    metascore = pd.DataFrame(metascore)
+    
+    fig = px.bar(metascore, x=metascore.index, y='Número de metascores', text='Número de metascores',
+                 template="plotly_dark", width=700, height=480,
+                )
+    fig.update_traces(#texttemplate='%{text:.2f}',
+                      textposition='outside',
+                      textfont={'color':"#F5C518"},
+                      marker=dict(color="#F5C518"),
+                     )
+    
+    return fig
+
+def bars_rating_economicvariable(movies, economic_variable, title_y, formattext):
+    movies['ratingImdb_group'] = pd.cut(movies.ratingImdb, [0, 2, 4, 6, 8, 10])
+    rating_economic = pd.DataFrame(movies.groupby('ratingImdb_group')[economic_variable].mean())
+    rating_economic.index = ['0 - 2', '2,1 - 4', '4,1 - 6', '6,1 - 8', '8,1 - 10']
+    rating_economic = rating_economic.reset_index()
+    economic_variable_mean = economic_variable + ' mean'
+    rating_economic.columns = ['rating ranges', economic_variable_mean]
+    
+    import plotly.express as px
+
+    fig = px.bar(rating_economic, x='rating ranges', y=economic_variable_mean, text=economic_variable_mean,
+                 template="plotly_dark", width=700, height=480,
+                )
+    fig.update_traces(texttemplate=formattext,
+                      textposition='outside',
+                      textfont={'color':"#F5C518"},
+                      marker=dict(color="#F5C518"),
+                     )
+    fig.update_xaxes(
+        title_text = "Ratings de IMDb agrupados por rangos de 2 puntos",
+        title_font = {"size": 15},
+        title_standoff = 20,
+        showgrid = False,
+        gridcolor='#999'
+    )
+
+    fig.update_yaxes(
+        title_text = title_y,
+        title_font = {"size": 15},
+        title_standoff = 20,
+    )
+    
+    return fig
+
+
+def bars_metascore_economicvariable(movies, economic_variable, title_y, formattext):
+    movies['metascore_group'] = pd.cut(movies.metascore, [0, 20, 40, 60, 80, 100])
+    metascore_economic = pd.DataFrame(movies.groupby('metascore_group')[economic_variable].mean())
+    metascore_economic.index = ['0 - 20', '21 - 40', '41 - 60', '61 - 80', '81 - 100']
+    metascore_economic = metascore_economic.reset_index()
+    economic_variable_mean = economic_variable + ' mean'
+    metascore_economic.columns = ['metascore ranges', economic_variable_mean]
+    
+    import plotly.express as px
+
+    fig = px.bar(metascore_economic, x='metascore ranges', y=economic_variable_mean, text=economic_variable_mean,
+                 template="plotly_dark", width=700, height=480,
+                )
+    fig.update_traces(texttemplate=formattext,
+                      textposition='outside',
+                      textfont={'color':"#F5C518"},
+                      marker=dict(color="#F5C518"),
+                     )
+    fig.update_xaxes(
+        title_text = "Metascores agrupados por rangos de 20 puntos",
+        title_font = {"size": 15},
+        title_standoff = 20,
+        showgrid = False,
+        gridcolor='#999'
+    )
+
+    fig.update_yaxes(
+        title_text = title_y,
+        title_font = {"size": 15},
+        title_standoff = 20,
+    )
+    
+    return fig    
+
 def set_home():
     md_parasite = 'https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_FMjpg_UY720_.jpg'
     md_boyhood = 'https://m.media-amazon.com/images/M/MV5BMTYzNDc2MDc0N15BMl5BanBnXkFtZTgwOTcwMDQ5MTE@._V1_FMjpg_UX1000_.jpg'
@@ -975,6 +1093,15 @@ def set_relations():
     if menu_relations == "Rating/Metascore":
         st.write(scatter_rating_metascore(movies))
     elif menu_relations == "R/M/Presupuesto":
+        col1, col2 = st.beta_columns(2)
+
+        with col1:
+            st.markdown('### Estadísticos presupuesto para rangos de Ratings IMDb')
+            st.write(table_ratings_economicvariable(movies, 'budget'))
+        with col2:
+            st.markdown('### Presupesto medio para rangos de Ratings IMDb')
+            st.write(bars_rating_economicvariable(movies, economic_variable='budget', title_y="Presupuesto medio($)", formattext='%{text:.2s}'))
+
         st.write(scatter_rating_metascore(movies, size='budget'))
     elif menu_relations == "R/M/Presupuesto/Beneficio":
         st.write(scatter_rating_metascore(movies, size='budget', color='profit', title_color = 'Beneficio'))
