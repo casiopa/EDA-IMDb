@@ -1101,10 +1101,10 @@ def set_relations():
             st.markdown('### Presupesto medio para rangos de Ratings IMDb')
             st.write(bars_rating_economicvariable(movies, economic_variable='budget', title_y="Presupuesto medio($)", formattext='%{text:.2s}'))
         with col2:
-            st.markdown('### Presupesto medio para rangos Metascore')
-            st.write(bars_metascore_economicvariable(movies, economic_variable='budget', title_y="Presupuesto medio ($)", formattext='%{text:.2s}'))
             st.markdown('### Presupuesto para rangos de Metascore')
             st.write(table_metascores_economicvariable(movies, 'budget'))
+            st.markdown('### Presupesto medio para rangos Metascore')
+            st.write(bars_metascore_economicvariable(movies, economic_variable='budget', title_y="Presupuesto medio ($)", formattext='%{text:.2s}'))
 
         st.write(scatter_rating_metascore(movies, size='budget'))
 
