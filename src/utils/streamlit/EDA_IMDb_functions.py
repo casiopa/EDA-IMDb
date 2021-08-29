@@ -885,7 +885,7 @@ def bars_rating_economicvariable(movies, economic_variable, title_y, formattext)
     import plotly.express as px
 
     fig = px.bar(rating_economic, x='rating ranges', y=economic_variable_mean, text=economic_variable_mean,
-                 template="plotly_dark", width=700, height=480,
+                 template="plotly_dark", # width=700, height=480,
                 )
     fig.update_traces(texttemplate=formattext,
                       textposition='outside',
@@ -920,7 +920,7 @@ def bars_metascore_economicvariable(movies, economic_variable, title_y, formatte
     import plotly.express as px
 
     fig = px.bar(metascore_economic, x='metascore ranges', y=economic_variable_mean, text=economic_variable_mean,
-                 template="plotly_dark", width=700, height=480,
+                 template="plotly_dark", # width=700, height=480,
                 )
     fig.update_traces(texttemplate=formattext,
                       textposition='outside',
@@ -1093,7 +1093,8 @@ def set_relations():
     if menu_relations == "Rating/Metascore":
         st.write(scatter_rating_metascore(movies))
     elif menu_relations == "R/M/Presupuesto":
-        
+        st.write(scatter_rating_metascore(movies, size='budget'))
+
         col1, col2 = st.beta_columns(2)
         with col1:
             st.markdown('### Presupuesto para rangos de Ratings IMDb')
@@ -1106,7 +1107,7 @@ def set_relations():
             st.markdown('### Presupesto medio para rangos Metascore')
             st.write(bars_metascore_economicvariable(movies, economic_variable='budget', title_y="Presupuesto medio ($)", formattext='%{text:.2s}'))
 
-        st.write(scatter_rating_metascore(movies, size='budget'))
+        
 
     elif menu_relations == "R/M/Presupuesto/Beneficio":
         st.write(scatter_rating_metascore(movies, size='budget', color='profit', title_color = 'Beneficio'))
