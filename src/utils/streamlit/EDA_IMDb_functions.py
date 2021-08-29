@@ -1109,7 +1109,10 @@ def set_relations():
         col1, col2 = st.beta_columns(2)
         with col1:
             st.markdown('### Cantidad de Ratings IMDb agrupados por rangos de 2 puntos')
-            st.write(ratings_counts(movies))
+            col1, col2, col3 = st.beta_columns([1,6,1])
+            with col1: st.write("")
+            with col2: st.write(ratings_counts(movies))
+            with col3: st.write("")
             st.write(bars_ratings_counts(movies))
         with col2:
             st.markdown('### Cantidad de Metascores agrupados por rangos de 20 puntos')
