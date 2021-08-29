@@ -1171,7 +1171,7 @@ def set_relations():
             st.write(bars_metascore_economicvariable(movies, economic_variable='roi', title_y="ROI medio ($)", formattext='%{text:.2s}'))
 
         st.markdown('### Relación entre Rating, Metascore, Presupuesto (tamaño) y ROI (color)')
-        st.write(scatter_rating_metascore(movies, size='roi', color='roi', title_color = 'ROI'))
+        st.write(scatter_rating_metascore(movies, size='budget', color='roi', title_color = 'ROI'))
 
 
 
