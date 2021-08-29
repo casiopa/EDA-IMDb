@@ -855,7 +855,7 @@ def table_metascores_economicvariable(movies, economic_variable):
 def bars_ratings_counts(movies):
     ratings = pd.cut(movies.ratingImdb, [0, 2, 4, 6, 8, 10])
     ratings = ratings.value_counts().sort_index()
-    ratings.index = pd.Index(['0 - 2', '2,1 - 4', ',41 - 6', '6,1 - 8', '8,1 - 10'], name='Ratings IMDb (en rangos)')
+    ratings.index = pd.Index(['0 - 2', '2,1 - 4', '4,1 - 6', '6,1 - 8', '8,1 - 10'], name='Ratings IMDb (en rangos)')
     ratings.name = 'Número de Ratings IMDb'
     ratings = pd.DataFrame(ratings)
     
@@ -867,6 +867,7 @@ def bars_ratings_counts(movies):
                       textfont={'color':"#F5C518"},
                       marker=dict(color="#F5C518"),
                      )
+    fig.update_yaxes(gridcolor='#333')
     
     return fig
 
@@ -885,6 +886,7 @@ def bars_metascores_counts(movies):
                       textfont={'color':"#F5C518"},
                       marker=dict(color="#F5C518"),
                      )
+    fig.update_yaxes(gridcolor='#333')
     
     return fig
 
@@ -911,13 +913,13 @@ def bars_rating_economicvariable(movies, economic_variable, title_y, formattext)
         title_font = {"size": 15},
         title_standoff = 20,
         showgrid = False,
-        gridcolor='#999'
     )
 
     fig.update_yaxes(
         title_text = title_y,
         title_font = {"size": 15},
         title_standoff = 20,
+        gridcolor='#333'
     )
     
     return fig
@@ -946,13 +948,13 @@ def bars_metascore_economicvariable(movies, economic_variable, title_y, formatte
         title_font = {"size": 15},
         title_standoff = 20,
         showgrid = False,
-        gridcolor='#999'
     )
 
     fig.update_yaxes(
         title_text = title_y,
         title_font = {"size": 15},
         title_standoff = 20,
+        gridcolor='#333'
     )
     
     return fig    
@@ -1108,7 +1110,7 @@ def set_relations():
 
         col1, col2 = st.beta_columns(2)
         with col1:
-            st.markdown('### Cantidad de Ratings IMDb agrupados por rangos de 2 puntos')
+            st.markdown('### Cantidad de Ratings IMDb agrupados por rangos de 2 puntos')    
             st.write(ratings_counts(movies))
             st.write(bars_ratings_counts(movies))
         with col2:
@@ -1131,14 +1133,17 @@ def set_relations():
             st.write(table_metascores_economicvariable(movies, 'budget'))
             st.markdown('### Presupesto medio para rangos Metascore')
             st.write(bars_metascore_economicvariable(movies, economic_variable='budget', title_y="Presupuesto medio ($)", formattext='%{text:.2s}'))
-
+        
+        st.markdown('### Relación entre Rating, Metascore y Presupuesto (tamaño)')
         st.write(scatter_rating_metascore(movies, size='budget'))
 
         
 
     elif menu_relations == "R/M/Presupuesto/Beneficio":
+        st.markdown('### Relación entre Rating, Metascore, Presupuesto (tamaño) y Beneficio (color)')
         st.write(scatter_rating_metascore(movies, size='budget', color='profit', title_color = 'Beneficio'))
     elif menu_relations == "R/M/Presupuesto/ROI":
+        st.markdown('### Relación entre Rating, Metascore, Presupuesto (tamaño) y ROI (color)')
         st.write(scatter_rating_metascore(movies, size='budget', color='roi', title_color = 'ROI'))
 
 
