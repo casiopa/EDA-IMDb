@@ -1096,11 +1096,15 @@ def set_relations():
         
         col1, col2 = st.beta_columns(2)
         with col1:
-            st.markdown('### Estadísticos presupuesto para rangos de Ratings IMDb')
+            st.markdown('### Presupuesto para rangos de Ratings IMDb')
             st.write(table_ratings_economicvariable(movies, 'budget'))
-        with col2:
             st.markdown('### Presupesto medio para rangos de Ratings IMDb')
             st.write(bars_rating_economicvariable(movies, economic_variable='budget', title_y="Presupuesto medio($)", formattext='%{text:.2s}'))
+        with col2:
+            st.markdown('### Presupesto medio para rangos Metascore')
+            st.write(bars_metascore_economicvariable(movies, economic_variable='budget', title_y="Presupuesto medio ($)", formattext='%{text:.2s}'))
+            st.markdown('### Presupuesto para rangos de Metascore')
+            st.write(table_metascores_economicvariable(movies, 'budget'))
 
         st.write(scatter_rating_metascore(movies, size='budget'))
 
