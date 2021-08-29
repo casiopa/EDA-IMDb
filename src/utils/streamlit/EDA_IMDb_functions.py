@@ -1093,7 +1093,6 @@ def set_relations():
     if menu_relations == "Rating/Metascore":
         st.write(scatter_rating_metascore(movies))
     elif menu_relations == "R/M/Presupuesto":
-        st.write(scatter_rating_metascore(movies, size='budget'))
 
         col1, col2 = st.beta_columns(2)
         with col1:
@@ -1106,6 +1105,8 @@ def set_relations():
             st.write(table_metascores_economicvariable(movies, 'budget'))
             st.markdown('### Presupesto medio para rangos Metascore')
             st.write(bars_metascore_economicvariable(movies, economic_variable='budget', title_y="Presupuesto medio ($)", formattext='%{text:.2s}'))
+
+        st.write(scatter_rating_metascore(movies, size='budget'))
 
         
 
