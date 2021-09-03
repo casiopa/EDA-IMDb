@@ -1177,12 +1177,16 @@ def set_relations():
         st.markdown('### Relación entre Rating y Metascore')
         st.write(scatter_rating_metascore(movies))
 
-        col1, col2 = st.beta_columns(2)
-        with col1:
+        menu_relations_ranking_metascore = st.radio(
+        "",
+            ("Rating", "Metascore"),
+        )   
+
+        if menu_relations_ranking_metascore == "Rating":
             st.markdown('### Cantidad de Ratings IMDb agrupados por rangos de 2 puntos')    
             st.write(ratings_counts(movies))
             st.write(bars_ratings_counts(movies))
-        with col2:
+        elif menu_relations_ranking_metascore == "Metascore":
             st.markdown('### Cantidad de Metascores agrupados por rangos de 20 puntos')
             st.write(metascores_counts(movies))
             st.write(bars_metascores_counts(movies))
