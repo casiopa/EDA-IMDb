@@ -863,8 +863,6 @@ def bars_rating_economicvariable(movies, economic_variable, title_y, formattext)
     rating_economic = rating_economic.reset_index()
     economic_variable_median = economic_variable + ' median'
     rating_economic.columns = ['rating ranges', economic_variable_median]
-    
-    import plotly.express as px
 
     fig = px.bar(rating_economic, x='rating ranges', y=economic_variable_median, text=economic_variable_median,
                  template="plotly_dark", width=700, height=480,
@@ -880,7 +878,6 @@ def bars_rating_economicvariable(movies, economic_variable, title_y, formattext)
         title_standoff = 20,
         showgrid = False,
     )
-
     fig.update_yaxes(
         title_text = title_y,
         title_font = {"size": 15},
@@ -898,9 +895,7 @@ def bars_metascore_economicvariable(movies, economic_variable, title_y, formatte
     metascore_economic = metascore_economic.reset_index()
     economic_variable_median = economic_variable + ' median'
     metascore_economic.columns = ['metascore ranges', economic_variable_median]
-    
-    import plotly.express as px
-    
+
     fig = px.strip(movies, x='metascore_group', y='budget')
     
     fig.add_trace(go.bar(metascore_economic, x='metascore ranges',
@@ -919,7 +914,6 @@ def bars_metascore_economicvariable(movies, economic_variable, title_y, formatte
         showgrid = False,
         categoryorder='category ascending'
     )
-
     fig.update_yaxes(
         title_text = title_y,
         title_font = {"size": 15},
