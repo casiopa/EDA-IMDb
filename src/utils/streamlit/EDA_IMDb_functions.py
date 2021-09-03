@@ -1240,7 +1240,7 @@ def set_relations():
 
         menu_relations_roi = st.radio(
         "",
-            ("Relación entre Rating y Presupuesto", "Relación entre Metascore y Presupuesto"),
+            ("Relación entre Rating y ROI", "Relación entre Metascore y ROI"),
         )   
 
         if menu_relations_roi == "Relación entre Rating y ROI":
