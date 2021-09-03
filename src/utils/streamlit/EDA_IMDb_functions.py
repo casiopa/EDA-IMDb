@@ -895,12 +895,11 @@ def bars_metascore_economicvariable(movies, economic_variable, title_y, formatte
     metascore_economic = metascore_economic.reset_index()
     economic_variable_median = economic_variable + ' median'
     metascore_economic.columns = ['metascore ranges', economic_variable_median]
-
-    fig = px.strip(movies, x='metascore_group', y='budget')
     
-    fig.add_trace(go.bar(metascore_economic, x='metascore ranges',
+    
+    fig = px.bar(metascore_economic, x='metascore ranges',
                          y=economic_variable_median, text=economic_variable_median,
-                         template="plotly_dark", width=700, height=480,))
+                         template="plotly_dark", width=700, height=480,)
     
     fig.update_traces(texttemplate=formattext,
                       textposition='outside',
@@ -914,12 +913,14 @@ def bars_metascore_economicvariable(movies, economic_variable, title_y, formatte
         showgrid = False,
         categoryorder='category ascending'
     )
+
     fig.update_yaxes(
         title_text = title_y,
         title_font = {"size": 15},
         title_standoff = 20,
         gridcolor='#333'
     )
+    
     
     return fig   
 
@@ -1205,7 +1206,7 @@ def set_relations():
             st.write(scatter_pointsvariable_economicvariable(movies, 'metascore', 'budget', title_points_variable='Metascore (1-100)', title_economic_variable='Presupuesto ($)'))
             st.markdown('### Presupuesto por rangos de Metascore')
             st.write(table_metascores_economicvariable(movies, 'budget'))
-            #st.write(bars_metascore_economicvariable(movies, economic_variable='budget', title_y="Presupuesto medio ($)", formattext='%{text:.2s}'))
+            st.write(bars_metascore_economicvariable(movies, economic_variable='budget', title_y="Presupuesto medio ($)", formattext='%{text:.2s}'))
             st.write(strip_metascore_economicvariable(movies, economic_variable='budget', title_economic_variable='Presupuesto ($)'))
         
 
