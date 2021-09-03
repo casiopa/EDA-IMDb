@@ -810,13 +810,13 @@ def metascores_counts(movies):
 
 def table_ratings_economicvariable(movies, economic_variable):
     movies['rating_group'] = pd.cut(movies.ratingImdb, [0, 2, 4, 6, 8, 10])
-    metascores = movies.groupby('rating_group')[economic_variable].agg(['count', np.mean, np.std])
+    metascores = movies.groupby('rating_group')[economic_variable].agg(['count', np.median, np.mean, np.std])
     metascores.index = pd.Index(['0 - 2', '2,1 - 4', '4,1 - 6', '6,1 - 8', '8,1 - 10'], name='Ratings IMDb (en rangos)')
     return metascores
 
 def table_metascores_economicvariable(movies, economic_variable):
     movies['metascore_group'] = pd.cut(movies.metascore, [0, 20, 40, 60, 80, 100])
-    metascores = movies.groupby('metascore_group')[economic_variable].agg(['count', np.mean, np.std])
+    metascores = movies.groupby('metascore_group')[economic_variable].agg(['count', np.median, np.mean, np.std])
     metascores.index = pd.Index(['0 - 20', '21 - 40', '41 - 60', '61 - 80', '81 - 100'], name='Metascores (en rangos)')
     return metascores.round(2)
 
@@ -858,16 +858,16 @@ def bars_metascores_counts(movies):
 
 def bars_rating_economicvariable(movies, economic_variable, title_y, formattext):
     movies['ratingImdb_group'] = pd.cut(movies.ratingImdb, [0, 2, 4, 6, 8, 10])
-    rating_economic = pd.DataFrame(movies.groupby('ratingImdb_group')[economic_variable].mean())
+    rating_economic = pd.DataFrame(movies.groupby('ratingImdb_group')[economic_variable].median())
     rating_economic.index = ['0 - 2', '2,1 - 4', '4,1 - 6', '6,1 - 8', '8,1 - 10']
     rating_economic = rating_economic.reset_index()
-    economic_variable_mean = economic_variable + ' mean'
-    rating_economic.columns = ['rating ranges', economic_variable_mean]
+    economic_variable_median = economic_variable + ' median'
+    rating_economic.columns = ['rating ranges', economic_variable_median]
     
     import plotly.express as px
 
-    fig = px.bar(rating_economic, x='rating ranges', y=economic_variable_mean, text=economic_variable_mean,
-                 template="plotly_dark", # width=700, height=480,
+    fig = px.bar(rating_economic, x='rating ranges', y=economic_variable_median, text=economic_variable_median,
+                 template="plotly_dark", width=700, height=480,
                 )
     fig.update_traces(texttemplate=formattext,
                       textposition='outside',
@@ -893,17 +893,20 @@ def bars_rating_economicvariable(movies, economic_variable, title_y, formattext)
 
 def bars_metascore_economicvariable(movies, economic_variable, title_y, formattext):
     movies['metascore_group'] = pd.cut(movies.metascore, [0, 20, 40, 60, 80, 100])
-    metascore_economic = pd.DataFrame(movies.groupby('metascore_group')[economic_variable].mean())
+    metascore_economic = pd.DataFrame(movies.groupby('metascore_group')[economic_variable].median())
     metascore_economic.index = ['0 - 20', '21 - 40', '41 - 60', '61 - 80', '81 - 100']
     metascore_economic = metascore_economic.reset_index()
-    economic_variable_mean = economic_variable + ' mean'
-    metascore_economic.columns = ['metascore ranges', economic_variable_mean]
+    economic_variable_median = economic_variable + ' median'
+    metascore_economic.columns = ['metascore ranges', economic_variable_median]
     
     import plotly.express as px
-
-    fig = px.bar(metascore_economic, x='metascore ranges', y=economic_variable_mean, text=economic_variable_mean,
-                 template="plotly_dark", # width=700, height=480,
-                )
+    
+    fig = px.strip(movies, x='metascore_group', y='budget')
+    
+    fig.add_trace(go.bar(metascore_economic, x='metascore ranges',
+                         y=economic_variable_median, text=economic_variable_median,
+                         template="plotly_dark", width=700, height=480,))
+    
     fig.update_traces(texttemplate=formattext,
                       textposition='outside',
                       textfont={'color':"#F5C518"},
@@ -914,6 +917,7 @@ def bars_metascore_economicvariable(movies, economic_variable, title_y, formatte
         title_font = {"size": 15},
         title_standoff = 20,
         showgrid = False,
+        categoryorder='category ascending'
     )
 
     fig.update_yaxes(
@@ -923,7 +927,7 @@ def bars_metascore_economicvariable(movies, economic_variable, title_y, formatte
         gridcolor='#333'
     )
     
-    return fig    
+    return fig   
 
 
 def scatter_pointsvariable_economicvariable(movies, points_variable, economic_variable, title_points_variable, title_economic_variable):
