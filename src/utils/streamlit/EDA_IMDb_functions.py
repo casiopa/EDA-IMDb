@@ -925,6 +925,109 @@ def bars_metascore_economicvariable(movies, economic_variable, title_y, formatte
     
     return fig    
 
+
+def scatter_pointsvariable_economicvariable(movies, points_variable, economic_variable, title_points_variable, title_economic_variable):
+
+    fig = px.scatter(movies,
+                     x=points_variable, y=economic_variable, opacity=0.3,
+                     template="plotly_dark",
+                     hover_name="spanishTitle", hover_data=[points_variable, economic_variable],
+                     #width=500, height=500,
+                )
+    
+    fig.update_traces(marker=dict(color="#F5C518"))
+
+    fig.update_layout(legend = dict(title = 'legend', font = {'size':14}),
+                      title = dict(font = {'size':20, 'color': "#F5C518"}),
+                     )
+
+    fig.update_xaxes(
+        title_text = title_points_variable,
+        title_font = {"size": 15},
+        title_standoff = 20,
+        gridcolor='#333',
+        zeroline = False,
+        #type="category"
+    )
+
+    fig.update_yaxes(
+        title_text = title_economic_variable,
+        title_font = {"size": 15},
+        title_standoff = 20,
+        gridcolor='#333',
+        zeroline = False
+    )
+    
+    return fig
+
+
+def strip_rating_economicvariable(movies, economic_variable, title_economic_variable):
+    
+    movies['ratingImdb_group'] = pd.cut(movies.ratingImdb, [0, 2, 4, 6, 8, 10])
+    movies['rating_group'] = movies.rating_group.astype(str)
+    rating_mapper = {'(0, 2]': '0 - 2',
+                     '(2, 4]': '2,1 - 4',
+                     '(4, 6]': '4,1 - 6',
+                     '(6, 8]': '6,1 - 8',
+                     '(8, 10]': '8,1 - 10'}
+    movies['rating_group'] = movies.rating_group.replace(rating_mapper)
+    
+    fig = px.strip(movies,
+                   x = 'rating_group', y = economic_variable,
+                   template ="plotly_dark",
+                   hover_name = "spanishTitle",
+                   hover_data = {'rating_group': False,
+                                 'ratingImdb': True,
+                                 economic_variable: True},
+                  )
+    fig.update_traces(marker=dict(color="#F5C518",
+                                  opacity = 0.3,
+                                 ))
+    fig.update_xaxes(categoryorder='category ascending',
+                     title_text = 'Ratings de IMDb agrupados por rangos de 2 puntos'
+                    )
+    fig.update_yaxes(title_text = title_economic_variable,
+                     gridcolor='#333',
+                     zeroline = False
+                    )
+
+    return fig
+
+
+def strip_metascore_economicvariable(movies, economic_variable, title_economic_variable):
+    
+    movies['metascore_group'] = pd.cut(movies.metascore, [0, 20, 40, 60, 80, 100])
+    movies['metascore_group'] = movies.metascore_group.astype(str)
+    metascore_mapper = {'(0, 20]': '0 - 20',
+                        '(20, 40]': '21 - 40',
+                        '(40, 60]': '41 - 60',
+                        '(60, 80]': '61 - 80',
+                        '(80, 100]': '81 - 100'}
+    movies['metascore_group'] = movies.metascore_group.replace(metascore_mapper)
+    
+    fig = px.strip(movies,
+                   x = 'metascore_group', y = economic_variable,
+                   template ="plotly_dark",
+                   hover_name = "spanishTitle",
+                   hover_data = {'metascore_group': False,
+                                 'metascore': True,
+                                 economic_variable: True},
+                  )
+    fig.update_traces(marker=dict(color="#F5C518",
+                                  opacity = 0.3,
+                                 ))
+    fig.update_xaxes(categoryorder='category ascending',
+                     title_text = 'Metascores agrupados por rangos de 20 puntos'
+                    )
+    fig.update_yaxes(title_text = title_economic_variable,
+                     gridcolor='#333',
+                     zeroline = False
+                    )
+
+    return fig
+
+
+
 def set_home():
     md_parasite = 'https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_FMjpg_UY720_.jpg'
     md_boyhood = 'https://m.media-amazon.com/images/M/MV5BMTYzNDc2MDc0N15BMl5BanBnXkFtZTgwOTcwMDQ5MTE@._V1_FMjpg_UX1000_.jpg'
@@ -1095,13 +1198,17 @@ def set_relations():
 
         col1, col2 = st.beta_columns(2)
         with col1:
+            st.write(scatter_pointsvariable_economicvariable(movies, 'ratingImdb', 'budget', title_points_variable='Rating de IMDb (1-10)', title_economic_variable='Presupuesto ($)'))
             st.markdown('### Presupuesto por rangos de Ratings IMDb')
             st.write(table_ratings_economicvariable(movies, 'budget'))
             st.write(bars_rating_economicvariable(movies, economic_variable='budget', title_y="Presupuesto medio($)", formattext='%{text:.2s}'))
+            st.write(strip_rating_economicvariable(movies, economic_variable='budget', title_economic_variable='Presupuesto ($)'))
         with col2:
+            st.write(scatter_pointsvariable_economicvariable(movies, 'metascore', 'budget', title_points_variable='Metascore (1-100)', title_economic_variable='Presupuesto ($)'))
             st.markdown('### Presupuesto por rangos de Metascore')
             st.write(table_metascores_economicvariable(movies, 'budget'))
             st.write(bars_metascore_economicvariable(movies, economic_variable='budget', title_y="Presupuesto medio ($)", formattext='%{text:.2s}'))
+            st.write(strip_metascore_economicvariable(movies, economic_variable='budget', title_economic_variable='Presupuesto ($)'))
         
 
 
@@ -1114,13 +1221,17 @@ def set_relations():
 
         col1, col2 = st.beta_columns(2)
         with col1:
+            st.write(scatter_pointsvariable_economicvariable(movies, 'ratingImdb', 'profit', title_points_variable='Rating de IMDb (1-10)', title_economic_variable='Beneficio ($)'))
             st.markdown('### Beneficio por rangos de Ratings IMDb')
             st.write(table_ratings_economicvariable(movies, 'profit'))
             st.write(bars_rating_economicvariable(movies, economic_variable='profit', title_y="Beneficio medio($)", formattext='%{text:.2s}'))
+            st.write(strip_rating_economicvariable(movies, economic_variable='profit', title_economic_variable='Beneficio ($)'))
         with col2:
+            st.write(scatter_pointsvariable_economicvariable(movies, 'metascore', 'profit', title_points_variable='Metascore (1-100)', title_economic_variable='Beneficio ($)'))
             st.markdown('### Beneficio por rangos de Metascore')
             st.write(table_metascores_economicvariable(movies, 'profit'))
             st.write(bars_metascore_economicvariable(movies, economic_variable='profit', title_y="Beneficio medio ($)", formattext='%{text:.2s}'))
+            st.write(strip_metascore_economicvariable(movies, economic_variable='profit', title_economic_variable='Beneficio ($)'))
 
         
 
@@ -1131,13 +1242,17 @@ def set_relations():
 
         col1, col2 = st.beta_columns(2)
         with col1:
+            st.write(scatter_pointsvariable_economicvariable(movies[movies.roi<30], 'ratingImdb', 'roi', title_points_variable='Rating de IMDb (1-10)', title_economic_variable='ROI'))
             st.markdown('### ROI por rangos de Ratings IMDb')
             st.write(table_ratings_economicvariable(movies, 'roi'))
             st.write(bars_rating_economicvariable(movies, economic_variable='roi', title_y="ROI medio($)", formattext='%{text:.2s}'))
+            st.write(strip_rating_economicvariable(movies[movies.roi<30], economic_variable='roi', title_economic_variable='ROI'))
         with col2:
+            st.write(scatter_pointsvariable_economicvariable(movies[movies.roi<30], 'metascore', 'roi', title_points_variable='Metascore (1-100)', title_economic_variable='ROI'))
             st.markdown('### ROI por rangos de Metascore')
             st.write(table_metascores_economicvariable(movies, 'roi'))
             st.write(bars_metascore_economicvariable(movies, economic_variable='roi', title_y="ROI medio ($)", formattext='%{text:.2s}'))
+            st.write(strip_metascore_economicvariable(movies[movies.roi<30], economic_variable='roi', title_economic_variable='ROI'))
 
         
 
