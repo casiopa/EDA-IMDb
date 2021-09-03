@@ -935,7 +935,7 @@ def set_home():
     md_split = 'https://m.media-amazon.com/images/M/MV5BZTJiNGM2NjItNDRiYy00ZjY0LTgwNTItZDBmZGRlODQ4YThkL2ltYWdlXkEyXkFqcGdeQXVyMjY5ODI4NDk@._V1_FMjpg_UY720_.jpg'
     md_sw_despertar = 'https://m.media-amazon.com/images/M/MV5BOTAzODEzNDAzMl5BMl5BanBnXkFtZTgwMDU1MTgzNzE@._V1_FMjpg_UY720_.jpg'
     md_lalaland = 'https://m.media-amazon.com/images/M/MV5BMzUzNDM2NzM2MV5BMl5BanBnXkFtZTgwNTM3NTg4OTE@._V1_FMjpg_UY720_.jpg'
-    st.header('Relaciones entre valoraciones de público y crítica, y la recaudación\n Películas en IMDb 2014 - 1019')
+    #st.header('Relaciones entre valoraciones de público y crítica, y la recaudación\n Películas en IMDb 2014 - 1019')
     #st.subheader('Relaciones entre valoraciones de público y crítica, y la recaudación')
 
     col1, col2, col3, col4, col5, col6, col7, col8 = st.beta_columns(8)
