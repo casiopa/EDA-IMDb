@@ -37,8 +37,6 @@ def bars_nmovies_imdb():
     ax.spines['right'].set_visible(False)
     ax.xaxis.grid(False)
 
-    # plt.title('Nº de películas en IMDb', fontdict={'fontname': 'Roboto', 'fontsize': 22, 'fontweight': 'bold', 'color': '#f5c518'}, pad=35)
-
     annos_xticks = annos.astype(str)
     annos_xticks[11] = 'jun\n2021'
     plt.xticks(annos, labels=annos_xticks, fontsize=12)
@@ -68,9 +66,6 @@ def bars_nmovies(movies):
     ax.spines['right'].set_visible(False)
     ax.xaxis.grid(False)
 
-    #plt.title('Nº de películas de IMDb seleccionadas', fontdict={'fontname': 'Roboto', 'fontsize': 20, 'fontweight': 'bold', 'color': '#f5c518'}, pad=45)
-
-
     plt.xticks(nmovies.index.astype(int), fontsize=12)
 
     # Pintar valores sobre las barras
@@ -84,7 +79,6 @@ def scatter_rating_metascore(movies, size=None, color=None, title_color=''):
 
     fig = px.scatter(movies[movies.roi<30],
                      x="ratingImdb", y="metascore", color=color, size=size,
-                     #title="Relación entre Rating y Metascore",
                      width=780, height=780, opacity=0.5,
                      color_continuous_scale=["#F5C518", "#F91949"],
                      template="plotly_dark",
@@ -95,8 +89,6 @@ def scatter_rating_metascore(movies, size=None, color=None, title_color=''):
         fig.update_traces(marker=dict(color="#F5C518"))
 
     fig.update_layout(coloraxis_colorbar = dict(title=title_color,
-                                                #tickvals=[6,7,8,9],
-                                                #ticktext=["1M", "10M", "100M", "1B"],
                                               ),
                       legend = dict(title = 'legend', font = {'size':14}),
                       title = dict(font = {'size':20, 'color': "#F5C518"}),
@@ -170,8 +162,6 @@ def barh_rating(movies):
     ax.xaxis.set_ticks_position('none')
 
     plt.xticks(fontsize=14)
-    #plt.title('Películas con mayor rating de usuarios en IMDd', fontdict={'fontname': 'Roboto', 'fontsize': 20, 'fontweight': 'bold', 'color': '#f5c518'}, pad=15)
-
 
     # Pintar nombre sobre las barras
     for pos, name in tuple(zip(range(n_mvps+1,1,-1), mvps_rating.spanishTitle)):
@@ -201,8 +191,6 @@ def barh_metascore(movies):
     ax.xaxis.set_ticks_position('none')
 
     plt.xticks(fontsize=14)
-    #plt.title('Películas con mayor metascore', fontdict={'fontname': 'Roboto', 'fontsize': 20, 'fontweight': 'bold', 'color': '#f5c518'}, pad=15)
-
 
     # Pintar nombre sobre las barras
     for pos, name in tuple(zip(range(n_mvps+1,1,-1), mvps_metascore.spanishTitle)):
@@ -231,7 +219,6 @@ def barh_budget(movies):
 
     ax.xaxis.grid(False) 
 
-    #plt.title('Películas con mayor presupuesto', fontdict={'fontname': 'Roboto', 'fontsize': 20, 'fontweight': 'bold', 'color': '#f5c518'}, pad=15)
     plt.xlabel('Millones de dólares', labelpad=15)
 
     fig.canvas.draw()
@@ -270,7 +257,6 @@ def barh_gross(movies):
 
     ax.xaxis.grid(False) 
 
-    #plt.title('Películas con mayor recaudación mundial', fontdict={'fontname': 'Roboto', 'fontsize': 20, 'fontweight': 'bold', 'color': '#f5c518'}, pad=15)
     plt.xlabel('Millones de dólares', labelpad=15)
 
     # Cambibar el texto de los xticks
@@ -312,7 +298,6 @@ def barh_profit(movies):
 
     ax.xaxis.grid(False) 
 
-    #plt.title('Películas con mayor beneficio', fontdict={'fontname': 'Roboto', 'fontsize': 20, 'fontweight': 'bold', 'color': '#f5c518'}, pad=15)
     plt.xlabel('Millones de dólares', labelpad=15)
 
     # Cambibar el texto de los xticks
@@ -356,7 +341,6 @@ def barh_roi(movies):
     ax.xaxis.grid(False)
     ax.xaxis.set_ticks_position('none')
 
-    #plt.title('Películas con mayor Retorno de la inversión (ROI)', fontdict={'fontname': 'Roboto', 'fontsize': 20, 'fontweight': 'bold', 'color': '#f5c518'}, pad=40)
     plt.suptitle('-- Sin películas con un ROI > 30 --', y=.925)
 
     plt.xticks(fontsize=14)
@@ -384,8 +368,6 @@ def hist_rating(movies):
     ax.xaxis.set_ticks_position('none')
     ax.xaxis.grid(False) 
 
-    #plt.title('Rating de usuarios IMDb', fontdict={'fontname': 'Roboto', 'fontsize': 20, 'fontweight': 'bold', 'color': '#f5c518'}, pad=20)
-
     plt.xticks(range(0,11,2), fontsize=14)
 
     return fig
@@ -407,7 +389,6 @@ def hist_metascore(movies):
     ax.xaxis.set_ticks_position('none')
     ax.xaxis.grid(False) 
 
-    #plt.title('Metascore', fontdict={'fontname': 'Roboto', 'fontsize': 20, 'fontweight': 'bold', 'color': '#f5c518'}, pad=20)
     plt.xticks(range(0,101,25), fontsize=14)
 
     return fig
@@ -429,7 +410,6 @@ def hist_budget(movies):
     ax.xaxis.set_ticks_position('none')
     ax.xaxis.grid(False) 
 
-    #plt.title('Presupuesto', fontdict={'fontname': 'Roboto', 'fontsize': 20, 'fontweight': 'bold', 'color': '#f5c518'}, pad=20)
     plt.xlabel('Millones de dólares', labelpad=15)
 
     # Cambibar el texto de los xticks
@@ -461,7 +441,6 @@ def hist_gross(movies):
     ax.xaxis.set_ticks_position('none')
     ax.xaxis.grid(False) 
 
-    #plt.title('Recaudación mundial', fontdict={'fontname': 'Roboto', 'fontsize': 20, 'fontweight': 'bold', 'color': '#f5c518'}, pad=20)
     plt.xlabel('Millones de dólares', labelpad=15)
     plt.xticks(fontsize=14)
 
@@ -493,7 +472,6 @@ def hist_profit(movies):
     ax.xaxis.set_ticks_position('none')
     ax.xaxis.grid(False) 
 
-    #plt.title('Beneficio', fontdict={'fontname': 'Roboto', 'fontsize': 20, 'fontweight': 'bold', 'color': '#f5c518'}, pad=20)
     plt.xlabel('Millones de dólares', labelpad=15)
     plt.xticks(fontsize=14)
 
@@ -526,7 +504,6 @@ def hist_roi(movies):
 
     plt.xticks(fontsize=14)
 
-    #plt.title('Rentabilidad (ROI)', fontdict={'fontname': 'Roboto', 'fontsize': 20, 'fontweight': 'bold', 'color': '#f5c518'}, pad=20)
     plt.suptitle('-- Sin películas con un ROI > 30 --', y=.91)
 
     return fig
@@ -714,12 +691,10 @@ def stack_bar_genres(movies):
     # Preparar el dataset
     movies = primaryGenre(movies)
 
-
     # Crear la tabla adecuada para el bar stick de plotly
     genres_by_year = movies.groupby(['year','primaryGenre'])[['primaryGenre']].count().unstack().T
     genres_by_year.index = genres_by_year.index.droplevel()
     genres_by_year.columns = genres_by_year.columns.astype(int)
-
 
     # Ordenar el df por la nueva columna total
     genres_by_year['TOTAL'] = genres_by_year.sum(axis=1)
@@ -736,7 +711,6 @@ def stack_bar_genres(movies):
     'marker': {'color': '#F52E18'}
     }
 
-
     trace2 = {
         'x': x,
         'y': genres_by_year[2015],
@@ -744,7 +718,6 @@ def stack_bar_genres(movies):
         'type': 'bar',
         'marker': {'color': '#F52E18'}
     }
-
 
     trace3 = {
         'x': x,
@@ -783,11 +756,7 @@ def stack_bar_genres(movies):
 
     layout = {'xaxis': {'title': ''},
             'font': {'family':"Roboto", 'size':16},
-            #'title_font_family': 'Roboto',
-            #'title_font_color':'#F5C518',
-            #'height': 600, 'width': 1200,
             'barmode': 'stack',
-            #'title': 'Número de películas por género',
             'template' : "plotly_dark",
             'plot_bgcolor':'rgba(50,50,50,1)'
             }
@@ -862,8 +831,7 @@ def bars_ratings_counts(movies):
     fig = px.bar(ratings, x=ratings.index, y='Número de Ratings IMDb', text='Número de Ratings IMDb',
                  template="plotly_dark", width=700, height=480,
                 )
-    fig.update_traces(#texttemplate='%{text:.2f}',
-                      textposition='outside',
+    fig.update_traces(textposition='outside',
                       textfont={'color':"#F5C518"},
                       marker=dict(color="#F5C518"),
                      )
@@ -881,8 +849,7 @@ def bars_metascores_counts(movies):
     fig = px.bar(metascore, x=metascore.index, y='Número de metascores', text='Número de metascores',
                  template="plotly_dark", width=700, height=480,
                 )
-    fig.update_traces(#texttemplate='%{text:.2f}',
-                      textposition='outside',
+    fig.update_traces(textposition='outside',
                       textfont={'color':"#F5C518"},
                       marker=dict(color="#F5C518"),
                      )
