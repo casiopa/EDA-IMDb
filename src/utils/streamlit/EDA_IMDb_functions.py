@@ -1192,24 +1192,22 @@ def set_relations():
         st.markdown('### Relación entre Rating, Metascore y Presupuesto (tamaño)')
         st.write(scatter_rating_metascore(movies, size='budget'))
 
-        menu_otras_variables = st.radio(
+        menu_relations_budget = st.radio(
         "",
             ("Relación entre Rating y Presupuesto", "Relación entre Metascore y Presupuesto"),
         )   
 
-        if menu_otras_variables == "Relación entre Rating y Presupuesto":
+        if menu_relations_budget == "Relación entre Rating y Presupuesto":
             st.write(scatter_pointsvariable_economicvariable(movies, 'ratingImdb', 'budget', title_points_variable='Rating de IMDb (1-10)', title_economic_variable='Presupuesto ($)'))
             st.markdown('### Presupuesto por rangos de Ratings IMDb')
             st.write(table_ratings_economicvariable(movies, 'budget'))
             st.write(strip_rating_economicvariable(movies, economic_variable='budget', title_economic_variable='Presupuesto ($)'))
-        elif menu_otras_variables == "Relación entre Metascore y Presupuesto":
+        elif menu_relations_budget == "Relación entre Metascore y Presupuesto":
             st.write(scatter_pointsvariable_economicvariable(movies, 'metascore', 'budget', title_points_variable='Metascore (1-100)', title_economic_variable='Presupuesto ($)'))
             st.markdown('### Presupuesto por rangos de Metascore')
             st.write(table_metascores_economicvariable(movies, 'budget'))
             st.write(strip_metascore_economicvariable(movies, economic_variable='budget', title_economic_variable='Presupuesto ($)'))
         
-
-
         
 
     elif menu_relations == "R/M/Presupuesto/Beneficio":
@@ -1217,18 +1215,20 @@ def set_relations():
         st.markdown('### Relación entre Rating, Metascore, Presupuesto (tamaño) y Beneficio (color)')
         st.write(scatter_rating_metascore(movies, size='budget', color='profit', title_color = 'Beneficio'))
 
-        col1, col2 = st.beta_columns(2)
-        with col1:
+        menu_relations_profit = st.radio(
+        "",
+            ("Relación entre Rating y Beneficio", "Relación entre Metascore y Beneficio"),
+        )   
+
+        if menu_relations_profit == "Relación entre Rating y Beneficio":
             st.write(scatter_pointsvariable_economicvariable(movies, 'ratingImdb', 'profit', title_points_variable='Rating de IMDb (1-10)', title_economic_variable='Beneficio ($)'))
             st.markdown('### Beneficio por rangos de Ratings IMDb')
             st.write(table_ratings_economicvariable(movies, 'profit'))
-            st.write(bars_rating_economicvariable(movies, economic_variable='profit', title_y="Mediana del beneficio ($)", formattext='%{text:.2s}'))
             st.write(strip_rating_economicvariable(movies, economic_variable='profit', title_economic_variable='Beneficio ($)'))
-        with col2:
+        elif menu_relations_profit == "Relación entre Metascore y Beneficio":
             st.write(scatter_pointsvariable_economicvariable(movies, 'metascore', 'profit', title_points_variable='Metascore (1-100)', title_economic_variable='Beneficio ($)'))
             st.markdown('### Beneficio por rangos de Metascore')
             st.write(table_metascores_economicvariable(movies, 'profit'))
-            st.write(bars_metascore_economicvariable(movies, economic_variable='profit', title_y="Mediana del beneficio ($)", formattext='%{text:.2s}'))
             st.write(strip_metascore_economicvariable(movies, economic_variable='profit', title_economic_variable='Beneficio ($)'))
 
         
@@ -1238,22 +1238,23 @@ def set_relations():
         st.markdown('### Relación entre Rating, Metascore, Presupuesto (tamaño) y ROI (color)')
         st.write(scatter_rating_metascore(movies, size='budget', color='roi', title_color = 'ROI'))
 
-        col1, col2 = st.beta_columns(2)
-        with col1:
+        menu_relations_roi = st.radio(
+        "",
+            ("Relación entre Rating y Presupuesto", "Relación entre Metascore y Presupuesto"),
+        )   
+
+        if menu_relations_roi == "Relación entre Rating y ROI":
             st.write(scatter_pointsvariable_economicvariable(movies[movies.roi<30], 'ratingImdb', 'roi', title_points_variable='Rating de IMDb (1-10)', title_economic_variable='ROI'))
             st.markdown('### ROI por rangos de Ratings IMDb')
             st.write(table_ratings_economicvariable(movies, 'roi'))
-            st.write(bars_rating_economicvariable(movies, economic_variable='roi', title_y="Mediana del ROI", formattext='%{text:.2s}'))
             st.write(strip_rating_economicvariable(movies[movies.roi<30], economic_variable='roi', title_economic_variable='ROI'))
-        with col2:
+        elif menu_relations_roi == "Relación entre Metascore y ROI":
             st.write(scatter_pointsvariable_economicvariable(movies[movies.roi<30], 'metascore', 'roi', title_points_variable='Metascore (1-100)', title_economic_variable='ROI'))
             st.markdown('### ROI por rangos de Metascore')
             st.write(table_metascores_economicvariable(movies, 'roi'))
-            st.write(bars_metascore_economicvariable(movies, economic_variable='roi', title_y="Mediana del ROI", formattext='%{text:.2s}'))
             st.write(strip_metascore_economicvariable(movies[movies.roi<30], economic_variable='roi', title_economic_variable='ROI'))
 
         
-
 
 
 
