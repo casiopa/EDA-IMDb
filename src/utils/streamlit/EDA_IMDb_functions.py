@@ -1194,18 +1194,16 @@ def set_relations():
 
         menu_otras_variables = st.radio(
         "",
-            ("Relación Rating/Presupuesto", "Relación Metascore/Presupuesto"),
+            ("Relación entre Rating y Presupuesto", "Relación entre Metascore y Presupuesto"),
         )   
 
-        if menu_otras_variables == "Relación Rating/Presupuesto":
-            st.markdown('### Relación entre Rating y Presupuesto')
+        if menu_otras_variables == "Relación entre Rating y Presupuesto":
             st.write(scatter_pointsvariable_economicvariable(movies, 'ratingImdb', 'budget', title_points_variable='Rating de IMDb (1-10)', title_economic_variable='Presupuesto ($)'))
             st.markdown('### Presupuesto por rangos de Ratings IMDb')
             st.write(table_ratings_economicvariable(movies, 'budget'))
             st.write(bars_rating_economicvariable(movies, economic_variable='budget', title_y="Mediana del presupuesto ($)", formattext='%{text:.2s}'))
             st.write(strip_rating_economicvariable(movies, economic_variable='budget', title_economic_variable='Presupuesto ($)'))
-        elif menu_otras_variables == "Relación Metascore/Presupuesto":
-            st.markdown('### Relación entre Metascore y Presupuesto')
+        elif menu_otras_variables == "Relación entre Metascore y Presupuesto":
             st.write(scatter_pointsvariable_economicvariable(movies, 'metascore', 'budget', title_points_variable='Metascore (1-100)', title_economic_variable='Presupuesto ($)'))
             st.markdown('### Presupuesto por rangos de Metascore')
             st.write(table_metascores_economicvariable(movies, 'budget'))
