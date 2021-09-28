@@ -1109,12 +1109,12 @@ def set_data():
         st.write(bars_nmovies(movies))
 
     st.markdown('### DataFrame `movies`')
-    st.markdown('DataFrame final preparado para el estudio, tras filtrar las películas con rating, metascore, presupuesto o recaudación. 1.553 películas.')
+    st.markdown('DataFrame final preparado para el estudio tras filtrar las películas con rating, metascore, presupuesto o recaudación. 1.553 películas.')
     st.markdown('1.553 entries  |  24 columns')
     st.write(movies)
 
     st.markdown('### DataFrame `rates`')
-    st.markdown('DataFrame generado con información de la OCDE y otras fuetes con la información de la tasa de cambio para las países y años del dataset.')
+    st.markdown('DataFrame generado con información de la OCDE y otras fuetes con la tasa de cambio para las países y años del dataset.')
     st.markdown('4.123 entries  |  8 columns')
     st.write(rates)
 
