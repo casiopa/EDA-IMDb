@@ -1156,11 +1156,11 @@ def set_otras_variables():
 
     if menu_otras_variables == "Géneros":
         st.markdown('### Número de películas por género')
-        st.markdown('La distribuicón por géneros de las palículas es similar en los años de estudio, con con tres 4 géneros que representan la gran mayoría de las películas: Acción, Drama, Comedia  y Biogrfías/Documentales')
+        st.markdown('La distribuicón por géneros de las palículas es similar en los años de estudio, con con tres 4 géneros que representan la gran mayoría de las películas: Acción, Drama, Comedia  y Biografías/Documentales.')
         st.write(stack_bar_genres(movies))
     elif menu_otras_variables == "Países":
         st.markdown('### Número de películas por país de origen')
-        st.markdown('Estados Unidos es el país con mayor número de producciones con 892 películas, seguido de Reino Unido con 185 y en tercer lugar se encuentra Francia con 98 películas producidas. También es de interés el mercado canadiense con 56 producciones y España se encuentra representada por 26 películas.')
+        st.markdown('Estados Unidos es el país con mayor número de producciones con 892 películas, seguido de Reino Unido con 185 y en tercer lugar se encuentra Francia con 98 películas producidas. También es de interés el mercado canadiense con 56 producciones. Finalmente, España se encuentra representada por 26 películas.')
         st.write(map_countries(movies))
 
 
