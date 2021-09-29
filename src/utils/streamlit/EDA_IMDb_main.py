@@ -22,6 +22,8 @@ menu = st.sidebar.radio(
 # Por eso está puesto en este que es general a todo
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
+st.write('Ana Blanco\n Julio 2021')
+
 if menu == 'Intro':
     set_home()
 elif menu == 'Data':
