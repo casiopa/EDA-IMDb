@@ -31,13 +31,6 @@ En esta etapa hice un análisis univariante, bivariante y multivariante de los d
 '''
 
 
-'''
-#### 6. Conclusiones
-En el análisis podemos concluir que las valoraciones de los usuarios tienen una mayor tendencia a aprobar las películas, sin embargo las puntuaciones de la crítica son más dispersas e incluso llegan a otorgar la puntuación máxima de 100.
-'''
-
-
-
 intro_herramientas_fuentes = '''
 ---
 ## Herramientas utilizadas
