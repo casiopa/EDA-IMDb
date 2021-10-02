@@ -19,36 +19,6 @@ Finalmente, teniendo la información de presupuesto y recaudación, he generado 
 ##### 4. Exploración
 En esta etapa hice un análisis univariante, bivariante y multivariante de los datos de valoraciones y recaudación.
 
-##### 5. Conclusiones
-En el análisis podemos concluir que las valoraciones de los usuarios tienen una mayor tendencia a aprobar las películas, sin embargo las puntuaciones de la crítica son más dispersas e incluso llegan a otorgar la puntuación máxima de 100.
-
-Rating de IMDb y Metascore                                                   |
-:---------------------------------------------------------------------------:|
-<img src="src/notebooks/images/Relacion_Rating_Metascore.png" width="600">   |
-
-
-Si relacionamos las valoraciones con la información económica de las películas podemos observar que no guarda gran relación con el presupuesto, pues encontramos películas de alto presupuesto suspensas en las calificaciones. Sin embargo si relacionamos las valoraciones con el beneficio observamos que una tendencia de mayor puntuaciones a mayor beneficio. La variable beneficio conlleva implícitamente dos conceptos: éxito en taquilla y alto presupuesto. Este tipo de película tiende a ser bien valorado por los usuarios de IMDb.
-
-
-Valoraciones y Presupuesto                                      |  Valoraciones y Beneficio
-:--------------------------------------------------------------:|:--------------------------------------------------------------:
-![](src/notebooks/images/Relacion_Rating_Metascore_Budget.png)  |  ![](src/notebooks/images/Relacion_Rating_Metascore_Profit.png)
-
-
-
-Si bien la correlación entre las valoraciones y los datos económicos de las películas es débil. Pero sí es cierto que la tendencia es más fuerte para el rating de usuarios que para la valoración de los críticos (Metascore).
-
-Correlaciones entre las valoraciones y los datos económicos |
-:----------------------------------------------------------:|
-<img src="src/notebooks/images/corr_2x4.png" width="600">   |
-
-Ciertos subgrupos de la muestra de película tienen una mayor correlación, como los géneros del tipo de acción, thriller y horror, y a nivel de países también mejora la correlación cuando nos centramos en EEUU (país de origen del portal IMDb).
-
-
-Correlaciones entre las valoraciones y los datos económicos para películas de EEUU | Correlaciones entre las valoraciones y los datos económicos para películas del género de acción |
-:---------------------------------------------------------------------------------:|:----------------------------------------------------------------------------------------------:|
-<img src="src/notebooks/images/corr_2x4_paises_eeuu.png" width="600">              |<img src="src/notebooks/images/corr_2x4_genero_action.png" width="600">                         |
-<p><br></p>
 
 ---
 ## Herramientas utilizadas
