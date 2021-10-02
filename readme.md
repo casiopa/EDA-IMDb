@@ -70,7 +70,7 @@ Correlaciones entre las valoraciones y los datos económicos para películas de 
 ## Fuentes
 
 IMDd Datasets
-https://www.imdb.com/interfaces/
+https://datasets.imdbws.com/
 
 IMDb. Documentación para los datasets:
 https://www.imdb.com/interfaces/
