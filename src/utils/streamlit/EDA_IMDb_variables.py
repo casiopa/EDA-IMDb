@@ -66,9 +66,6 @@ https://www.exchangerates.org.uk/
 Google Developers. Listado de coordenadas de países:
 https://developers.google.com/public-data/docs/canonical/countries_csv
 
-Posible map for countries after clean and merge dataframes of years:
-https://towardsdatascience.com/using-python-to-create-a-world-map-from-a-list-of-country-names-cd7480d03b10
-
 
 '''
 
