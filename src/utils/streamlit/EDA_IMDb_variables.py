@@ -10,7 +10,7 @@ El objetivo inicial era estudiar los 10 años anteriores a 2020 (de 2010 a 2019)
 
 ### Procesos
 
-#### 1. Tablas relacionales descargadas de IMBd
+#### 1. Tablas relacionales descargadas de IMDb
 IMDb ofrece, de manera gratuita, una serie de archivos `.csv` que se corresponden con parte la información de su base de datos. De estas tablas he conseguido información como identificador de IMDb, título en español y en su versión original, duración, géneros, rating IMDb, año.
 
 #### 2. *Web scrapping* portal IMDb
