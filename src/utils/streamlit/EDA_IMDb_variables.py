@@ -17,7 +17,7 @@ IMDb ofrece, de manera gratuita, una serie de archivos `.csv` que se corresponde
 Como los archivos proporcionados por IMDb no contienen información económica de las películas he recogido esta información del propio portal IMDb mediante *web scrapping*. También era importante el dato de valoración de la crítica, el Metascore que sin ser un dato propio de IMDb sí que se puede visualizar en el portal. Además he recogido información que podría ser relevante más adelante como directores, guionistas, actores y países. Debido a la ingente cantidad de información, he tenido que utilizar la librería *parallel* para recoger información de varias páginas simultáneamente, una página por núcleo del procesador de mi portátil. La herramienta principal para esta fase fue Selenium.
 > **117.482 páginas escrapeadas** (todas las películas de 2014 a 2020)
 
-#### 3. *Variables* de estudio
+#### 3. Variables de estudio
 Una vez que tenemos disponibles todos los datos seleccionamos nuestras principales variables para el estudio.
 Nos encontramos con dos tipos de variables: Por un lado tenemos las variables que hacen una valoración de las películas - Rating IMDb de usuarios, Metascore- y por otra parte tenemos variabes tipo económico (Presupuesto, Recaudación, Beneficio y ROI).
 

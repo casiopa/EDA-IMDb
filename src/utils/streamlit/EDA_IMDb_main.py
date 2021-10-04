@@ -23,7 +23,7 @@ menu = st.sidebar.radio(
 st.write('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
 
 st.sidebar.markdown('---')
-st.sidebar.write('Ana Blanco | Julio 2021 anablancodelgado@gmail.com https://github.com/casiopa')
+st.sidebar.write('Ana Blanco | Julio 2021 anablancodelgado@gmail.com https://casiopa.github.io/')
 
 if menu == 'Intro':
     set_home()
