@@ -4,10 +4,10 @@
 ### Análisis exploratorio de datos | Películas 2014 a 2019
 Con la intención de analizar un dataset representativo de todo tipo de películas he acudido al portal IMDb, el más completo a nivel internacional. Y he extraído los datos por dos vías: 
 
-##### 1. Tablas relacionales descargadas de IMBd
+##### 1. Tablas relacionales descargadas de IMDb
 IMDb ofrece, de manera gratuita, una serie de archivos `.csv` que se corresponden con parte la información de su base de datos. De estas tablas he conseguido información como identificador de IMDb, título en español y en su versión original, duración, géneros, rating IMDb, año.
 
-##### 2. *Web scrapping* portal IMBd
+##### 2. *Web scrapping* portal IMDb
 Como los archivos proporcionados por IMDb no contienen información económica de las películas he recogido esta información del propio portal IMDb mediante *web scrapping*. También era importante el dato de valoración de la crítica, el Metascore que sin ser un dato propio de IMDb sí que se puede visualizar en el portal. Además he recogido información que podría ser relevante más adelante como directores, guionistas, actores y países. Debido a la ingente cantidad de información, he tenido que utilizar *parallel* para recoger información de varias páginas simultáneamente, una página por núcleo del procesador de mi portátil. La herramienta principal para esta fase fue Selenium.
 > **117.482 páginas escrapeadas** (todas las películas de 2014 a 2020)
 
