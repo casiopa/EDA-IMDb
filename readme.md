@@ -1,5 +1,9 @@
 # Público, crítica y taquilla en IMDb
-[Enlace a dashboard interactivo `Streamlit EDA-IMDb`](https://share.streamlit.io/casiopa/eda-imdb/main/src/utils/streamlit/EDA_IMDb_main.py)
+[Enlace a dashboard interactivo `Streamlit EDA-IMDb`](https://share.streamlit.io/casiopa/eda-imdb/main/src/utils/streamlit/EDA_IMDb_main.py).
+
+Este dashboard ha sido seleccionado por Streamlit para su [galería de Visualización](https://streamlit.io/gallery?category=data-visualization).
+
+![Streamlit EDA IMDb](https://repository-images.githubusercontent.com/390416155/3c606342-7ee0-47b4-9fb1-48008ef4039c)
 
 ### Análisis exploratorio de datos | Películas 2014 a 2019
 Con la intención de analizar un dataset representativo de todo tipo de películas he acudido al portal IMDb, el más completo a nivel internacional. Y he extraído los datos por dos vías: 
@@ -27,16 +31,16 @@ En esta etapa hice un análisis univariante, bivariante y multivariante de los d
 ---
 ## Herramientas utilizadas
 
-| Web scrapping 		| Data mining		| Visualización  	|
-|---			      		|---		    		|---		      		|
-| - Visual Studio Code	| - Jupyter Lab		| - Streamlit		|
-| - Python				| - Python			| - Python			|
-| - Pandas				| - Regex			| - Regex			|
-| - Selenium			| - Pandas			| - Pandas			|
-| - Joblib / Parallel	| - Numpy			| - Numpy			|
-| - Logging				|   				| - Matplotlib		|
-| - Pickle				|   				| - Plotly			|
-|   					|   				| - Google Slides	|
+| Web scrapping 		    | Data mining		    | Visualización  	|
+|---			      		|---		    		|---		      	|
+| - Visual Studio Code	    | - Jupyter Lab		    | - Streamlit		|
+| - Python				    | - Python			    | - Python			|
+| - Pandas				    | - Regex			    | - Regex			|
+| - Selenium			    | - Pandas			    | - Pandas			|
+| - Joblib / Parallel	    | - Numpy			    | - Numpy			|
+| - Logging				    |   				    | - Matplotlib		|
+| - Pickle				    |   				    | - Plotly			|
+|   					    |   				    | - Google Slides	|
 
 <p><br></p>
 
