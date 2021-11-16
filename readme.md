@@ -1,7 +1,9 @@
 # Público, crítica y taquilla en IMDb
 [Enlace a dashboard interactivo `Streamlit EDA-IMDb`](https://share.streamlit.io/casiopa/eda-imdb/main/src/utils/streamlit/EDA_IMDb_main.py).
 
-Este dashboard ha sido seleccionado por Streamlit para su galería de Visualización durante el mes de octubre de 2021.
+***Único proyecto en lengua no inglesa elegido por el framework para Machine Learning y Data Science `Streamlit` como de caso de uso de visualización en su [galería de visualización](https://streamlit.io/gallery?category=data-visualization).***
+
+---
 
 ![Streamlit EDA IMDb](https://repository-images.githubusercontent.com/390416155/3c606342-7ee0-47b4-9fb1-48008ef4039c)
 
